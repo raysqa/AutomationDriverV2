@@ -34,7 +34,7 @@ public class TestAutomationDriverKeywords {
 			String variableValue2, String returnString) throws AutomationDriverException {
 		var.setVariableValue(variableName1, variableValue1);
 		var.setVariableValue(variableName2, variableValue2);
-		assertThat(kw.AssertEqual(variableName1, variableName2, var)).isEqualTo(returnString);
+		assertThat(kw.assertEqual(variableName1, variableName2, var)).isEqualTo(returnString);
 	}
 
 	@Test(description = "TestAssertNotEquals", dataProvider = "AssertNotEquals", enabled = true)
@@ -42,7 +42,7 @@ public class TestAutomationDriverKeywords {
 			String variableValue2, String returnString) throws AutomationDriverException {
 		var.setVariableValue(variableName1, variableValue1);
 		var.setVariableValue(variableName2, variableValue2);
-		assertThat(kw.AssertNotEqual(variableName1, variableName2, var)).isEqualTo(returnString);
+		assertThat(kw.assertNotEqual(variableName1, variableName2, var)).isEqualTo(returnString);
 	}
 
 	@Test(description = "TestAssertContains", dataProvider = "AssertContains", enabled = true)
@@ -50,7 +50,7 @@ public class TestAutomationDriverKeywords {
 			String variableValue2, String returnString) throws AutomationDriverException {
 		var.setVariableValue(variableName1, variableValue1);
 		var.setVariableValue(variableName2, variableValue2);
-		assertThat(kw.AssertContains(variableName1, variableName2, var)).isEqualTo(returnString);
+		assertThat(kw.assertContains(variableName1, variableName2, var)).isEqualTo(returnString);
 	}
 
 	@Test(description = "TestAssertNotContains", dataProvider = "AssertNotContains", enabled = true)
@@ -58,7 +58,7 @@ public class TestAutomationDriverKeywords {
 			String variableValue2, String returnString) throws AutomationDriverException {
 		var.setVariableValue(variableName1, variableValue1);
 		var.setVariableValue(variableName2, variableValue2);
-		assertThat(kw.AssertNotContains(variableName1, variableName2, var)).isEqualTo(returnString);
+		assertThat(kw.assertNotContains(variableName1, variableName2, var)).isEqualTo(returnString);
 	}
 
 	@DataProvider

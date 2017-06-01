@@ -41,5 +41,6 @@ public class AutomationDriverGetPropertyAttribute {
 			throw new AutomationDriverException(
 					"Error : '" + objectType + "' not a valid object type for object name '" + newObjectName + "'.");
 		}
+		
 	}
 }
