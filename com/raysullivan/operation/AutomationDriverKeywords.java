@@ -20,7 +20,7 @@ public class AutomationDriverKeywords {
 		return variableNames;
 	}
 
-	public String assertEqual(String variableName1, String variableName2,  AutomationDriverVariable var)
+	public String assertEqual(String variableName1, String variableName2, AutomationDriverVariable var)
 			throws AutomationDriverException {
 		if (var.getVariableValue(variableName1).equals(var.getVariableValue(variableName2))) {
 			return util.getSuccessString();
@@ -56,199 +56,201 @@ public class AutomationDriverKeywords {
 		}
 	}
 
-	public String[] click(Properties p, String objectName, String propertyName, String[] returnMessage) {
-		// TODO Auto-generated method stub
-		return null;
+	public String click(Properties p, String objectName, String propertyName) throws Exception {
+		try {
+			browser.findElement(AutomationDriverGetPropertyAttribute.getObject(p, objectName, propertyName)).click();
+			return util.getSuccessString();
+		} catch (NoSuchElementException nsee) {
+			return "Object " + objectName + " could not be found due to a NoSuchElementException";
+		} catch (StaleElementReferenceException sere) {
+			return "Object " + objectName + " could not be found due to StaleElementReferenceException";
+		} catch (ElementNotVisibleException enve) {
+			return "Object " + objectName + " could not be found due to ElementNotVisibleException";
+		} catch (WebDriverException we) {
+			return "Object " + objectName + " could not be clicked due to WebDriverException: Element is not clickable";
+		}
 	}
 
-	public String[] clickOn(Properties p, String objectName, String propertyName, WebElement checkbox,
-			String[] returnMessage) throws Exception {
+	public String clickOn(Properties p, String objectName, String propertyName, WebElement checkbox) throws Exception {
 		try {
-			checkbox = browser.findElement(AutomationDriverGetPropertyAttribute.getObject(p, objectName,
-					propertyName));
+			checkbox = browser.findElement(AutomationDriverGetPropertyAttribute.getObject(p, objectName, propertyName));
 			checkbox.click();
 			if (checkbox.isSelected() == true) {
-				returnMessage[1] = util.getSuccessString();
+				return util.getSuccessString();
+			} else {
+				return util.getErrorString();
 			}
 		} catch (NoSuchElementException nsee) {
-			returnMessage[1] = "Object " + objectName
-					+ " could not be found due to NoSuchElementException";
+			return "Object " + objectName + " could not be found due to NoSuchElementException";
 		} catch (StaleElementReferenceException sere) {
-			returnMessage[1] = "Object "
-					+ objectName
-					+ " could not be found due to StaleElementReferenceException";
+			return "Object " + objectName + " could not be found due to StaleElementReferenceException";
 		} catch (ElementNotVisibleException enve) {
-			returnMessage[1] = "Object " + objectName
-					+ " could not be found due to ElementNotVisibleException";
+			return "Object " + objectName + " could not be found due to ElementNotVisibleException";
 		} catch (WebDriverException we) {
-			returnMessage[1] = "Object "
-					+ objectName
+			return "Object " + objectName
 					+ " could not be clicked on due to WebDriverException: Element is not clickable";
 		}
-		return returnMessage;
+
+
 	}
 
-	public String[] clickOff(Properties p, String objectName, String propertyName, WebElement checkbox,
-			String[] returnMessage) {
+	public String clickOff(Properties p, String objectName, String propertyName, WebElement checkbox) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] clickNoAssert(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String clickNoAssert(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] clickAlert(String[] returnMessage) {
+	public String clickAlert() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] pause(String value, String[] returnMessage) {
+	public String pause(String value) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] refresh(String[] returnMessage) {
+	public String refresh() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] submit(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String submit(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] clear(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String clear(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] gotoUrl(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String gotoUrl(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] waitVisible(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String waitVisible(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] waitInvisible(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String waitInvisible(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] clickAndHold(Properties p, String objectName, String propertyName, String value,
-			String[] returnMessage) {
+	public String clickAndHold(Properties p, String objectName, String propertyName, String value) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] hover(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String hover(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] switchFrame(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String switchFrame(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] listWindows(String[] returnMessage) {
+	public String listWindows() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] listFrames(String[] returnMessage) {
+	public String listFrames() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] scrollTo(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String scrollTo(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] navForward(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String navForward(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] navBackward(Properties p, String objectName, String propertyName, String[] returnMessage) {
+	public String navBackward(Properties p, String objectName, String propertyName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] setText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2, String[] createVariable, String[] returnMessage) {
+	public String setText(Properties p, String objectName, String propertyName, String value, String variable,
+			String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] select(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2, String[] createVariable, String[] returnMessage) {
+	public String select(Properties p, String objectName, String propertyName, String value, String variable,
+			String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] deselect(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2, String[] createVariable, String[] returnMessage) {
+	public String deselect(Properties p, String objectName, String propertyName, String value, String variable,
+			String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] selectByIndex(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2, String[] createVariable, String[] returnMessage) {
+	public String selectByIndex(Properties p, String objectName, String propertyName, String value, String variable,
+			String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] deselectByIndex(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2, String[] createVariable, String[] returnMessage) {
+	public String deselectByIndex(Properties p, String objectName, String propertyName, String value, String variable,
+			String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] gotoAddress(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2, String[] createVariable, String[] returnMessage) {
+	public String gotoAddress(Properties p, String objectName, String propertyName, String value, String variable,
+			String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] assertUrl(String objectName, String value, String variable, String operation,
-			AutomationDriverVariable var2, String[] createVariable, String[] returnMessage) {
+	public String assertUrl(String objectName, String value, String variable, String operation,
+			AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] assertText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2, String[] createVariable, String[] returnMessage) {
+	public String assertText(Properties p, String objectName, String propertyName, String value, String variable,
+			String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] createVar(String value, String variable, String operation, AutomationDriverVariable var2,
-			String[] createVariable, String[] returnMessage) {
+	public String createVar(String value, String variable, String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] containsText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2, String[] createVariable, String[] returnMessage) {
+	public String containsText(Properties p, String objectName, String propertyName, String value, String variable,
+			String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] storeText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2, String[] createVariable, String[] returnMessage) {
+	public String storeText(Properties p, String objectName, String propertyName, String value, String variable,
+			String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String[] assertAttribute(Properties p, String objectName, String propertyName, String value, String variable,
-			String valueType, String operation, AutomationDriverVariable var2, String[] createVariable,
-			String[] returnMessage) {
+	public String assertAttribute(Properties p, String objectName, String propertyName, String value, String variable,
+			String valueType, String operation, AutomationDriverVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}

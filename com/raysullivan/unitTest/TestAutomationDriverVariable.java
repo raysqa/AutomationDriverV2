@@ -71,13 +71,17 @@ public class TestAutomationDriverVariable {
 		return new String[][] { new String[] { "${ValidVariableName}", "${ValidVariableName}" },
 				new String[] { "${Valid.Variable}", "${Valid.Variable}" }, new String[] { "${a}", "${a}" },
 				new String[] { "${Valid_Really_Long_Variable}", "${Valid_Really_Long_Variable}" },
-				new String[] { "${Truncated_Long_Vari}able", "${Truncated_Long_Vari}" }, };
+				new String[] { "${Truncated_Long_Vari}able", "${Truncated_Long_Vari}" }, 
+				new String[] { "Not a Variable", "Not a Variable" }, 
+				new String[] { "{NotaVariable}", "{NotaVariable}" }, new String[] { "{NotaVariable", "{NotaVariable" },
+				new String[] { "NotaVariable}", "NotaVariable}" }, new String[] { "a", "a", },
+				new String[] { "ab", "ab" }, new String[] { "abc", "abc" }, new String[] { "", "", },};
 	}
 
 	@DataProvider
 	public final Object[][] invalidVariableNames() {
 		return new String[][] { new String[] { "${Invalid VariableName}", "${Invalid VariableName}" },
-				new String[] { "Not a Variable", "Not a Variable" },
+				
 				new String[] { "{NotaVariable}", "{NotaVariable}" }, new String[] { "{NotaVariable", "{NotaVariable" },
 				new String[] { "NotaVariable}", "NotaVariable}" }, new String[] { "a", "a", },
 				new String[] { "ab", "ab" }, new String[] { "abc", "abc" }, new String[] { "", "", },

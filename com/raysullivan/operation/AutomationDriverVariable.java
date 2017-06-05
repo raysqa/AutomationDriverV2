@@ -58,8 +58,9 @@ public class AutomationDriverVariable {
 							"Error:  Variable '" + variableName + "' does not have a valid ending delimiter }");
 				}
 			} else {
-				throw new AutomationDriverException(
-						"Error:  Variable '" + variableName + "' does not have a valid starting delimiter ${");
+				return variableName;
+				//throw new AutomationDriverException(
+				//		"Error:  Variable '" + variableName + "' does not have a valid starting delimiter ${");
 			}
 		} catch (NullPointerException npe) {
 			throw new AutomationDriverException("Error: Variable name cannot be null");
