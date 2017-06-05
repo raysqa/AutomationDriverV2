@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class AutomationDriverVariable {
+public class AdVariable {
 
 	private ArrayList<String> vNameList = new ArrayList<String>();
 	private ArrayList<String> vValueList = new ArrayList<String>();
 	private int index;
 
-	public AutomationDriverVariable() {
+	public AdVariable() {
 	}
 
-	public String setVariableValue(String variableName, String variableValue) throws AutomationDriverException {
+	public String setVariableValue(String variableName, String variableValue) throws AdException {
 		validateVariableName(variableName);
 		checkNullValue(variableValue);
 		String returnString = variableValue;
@@ -27,7 +27,7 @@ public class AutomationDriverVariable {
 		return returnString;
 	}
 
-	public String getVariableValue(String variableName) throws AutomationDriverException {
+	public String getVariableValue(String variableName) throws AdException {
 		validateVariableName(variableName);
 		String variableValue = null;
 		int index = vNameList.indexOf(variableName);
@@ -35,17 +35,16 @@ public class AutomationDriverVariable {
 			variableValue = vValueList.get(index);
 			return variableValue;
 		} else {
-			throw new AutomationDriverException(
+			throw new AdException(
 					"Error: Variable '" + variableName + "' has not been previously created");
 		}
 	}
 
-	public String validateVariableName(String variableName) throws AutomationDriverException {
+	public String validateVariableName(String variableName) throws AdException {
 		checkEmptyVariable(variableName);
 		try {
 			String vDs = "${", vDe = "}";
 			if (variableName.substring(0, 2).equals(vDs)) {
-				System.out.println("Variable Name " + variableName + " has the proper starting delimiter");
 				try {
 					int sx = variableName.indexOf(vDs) + 2;
 					int ex = variableName.indexOf(vDe);
@@ -55,41 +54,41 @@ public class AutomationDriverVariable {
 					variableName = variableName.substring(variableName.indexOf(vDs), ex + 1);
 					return variableName;
 				} catch (StringIndexOutOfBoundsException s) {
-					throw new AutomationDriverException(
+					throw new AdException(
 							"Error:  Variable '" + variableName + "' does not have a valid ending delimiter }");
 				}
 			} else {
-				throw new AutomationDriverException(
+				throw new AdException(
 						"Error:  Variable '" + variableName + "' does not have a valid starting delimiter ${");
 			}
 		} catch (NullPointerException npe) {
-			throw new AutomationDriverException("Error: Variable name cannot be null");
+			throw new AdException("Error: Variable name cannot be null");
 		} catch (StringIndexOutOfBoundsException e) {
 		}
-		throw new AutomationDriverException("Error: Variable '" + variableName + "' is not a valid variable name");
+		throw new AdException("Error: Variable '" + variableName + "' is not a valid variable name");
 	}
 
-	private void checkEmptyVariable(String stringToCheck) throws AutomationDriverException {
+	private void checkEmptyVariable(String stringToCheck) throws AdException {
 		try {
 			if (stringToCheck == "${}") {
-				throw new AutomationDriverException("Error: Variable name cannot be empty '${}'");
+				throw new AdException("Error: Variable name cannot be empty '${}'");
 			}
 		} catch (NullPointerException e) {
-			throw new AutomationDriverException("Error: Variable name or value cannot contain blank or null values");
+			throw new AdException("Error: Variable name or value cannot contain blank or null values");
 		}
 
 	}
 
-	private void checkNullValue(String stringToCheck) throws AutomationDriverException {
+	private void checkNullValue(String stringToCheck) throws AdException {
 		try {
 			if (stringToCheck.length() == 0) {
 			}
 		} catch (NullPointerException e) {
-			throw new AutomationDriverException("Error: Variable name or value cannot contain blank or null values");
+			throw new AdException("Error: Variable name or value cannot contain blank or null values");
 		}
 	}
 
-	private void checkWhitespace(String variableName) throws AutomationDriverException {
+	private void checkWhitespace(String variableName) throws AdException {
 
 		if (variableName.length() > 1) {
 			Pattern pattern = Pattern.compile("\\s");
@@ -97,14 +96,14 @@ public class AutomationDriverVariable {
 			Matcher matcher = pattern.matcher(s);
 			boolean found = matcher.find();
 			if (found || variableName.length() <= 1) {
-				throw new AutomationDriverException("Variable '" + variableName + "' cannot contain whitespace");
+				throw new AdException("Variable '" + variableName + "' cannot contain whitespace");
 			}
 		}
 	}
 
-	public void checkAssertVariables(String variable1, String variable2) throws AutomationDriverException {
+	public void checkAssertVariables(String variable1, String variable2) throws AdException {
 		if (variable1.equals(variable2)) {
-			throw new AutomationDriverException("Error:  Cannot compare a variable to itself.");
+			throw new AdException("Error:  Cannot compare a variable to itself.");
 		}
 
 	}

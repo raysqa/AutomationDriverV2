@@ -22,9 +22,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author rsullivan
  *
  */
-public class AutomationDriverExcelTestResults {
+public class AdExcelTestResults {
 	// Get the utility class
-	AutomationDriverUtil util = new AutomationDriverUtil();
+	AdUtil util = new AdUtil();
 //	AutomationDriverTool tool = new AutomationDriverTool();
 	/**
 	 * writeExcel Creates a datasheet, worksheet and inserts rows
@@ -85,7 +85,7 @@ public class AutomationDriverExcelTestResults {
 		String e = "encrypt";
 		if(dataToWrite[8].equals(e)){
 			util.setKeyString("automationDriver");
-			dataToWrite[7] = AutomationDriverEncryptDecrypt.encrypt(dataToWrite[7], util.getKeyString());
+			dataToWrite[7] = AdEncryptDecrypt.encrypt(dataToWrite[7], util.getKeyString());
 		}
 		// Now get the default worksheet name using the getSheet method
 		Sheet sheet = workbook.getSheet(sheetName);

@@ -8,21 +8,21 @@ import java.util.Properties;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import raysullivan.operation.AutomationDriverException;
-import raysullivan.operation.AutomationDriverReadProperties;
+import raysullivan.operation.AdException;
+import raysullivan.operation.AdReadProperties;
 
-public class TestAutomationDriverBrowserProperties {
-	private AutomationDriverReadProperties object = new AutomationDriverReadProperties();
+public class TestAdBrowserProperties {
+	private AdReadProperties object = new AdReadProperties();
 	
 	@Test(description = "testPropertyFile", dataProvider = "getPropertyFileName", enabled = true)
-	public void testPropertyFile(String propertyFileName, String resultString) throws IOException, AutomationDriverException {
+	public void testPropertyFile(String propertyFileName, String resultString) throws IOException, AdException {
 		Properties p = new Properties();
 		p = object.getObjectRepository(propertyFileName);
 		assertThat(p.toString()).isEqualTo(resultString);
 	}
 
-	@Test(description = "testFileNotFound", dataProvider = "propertyFileNotFound", expectedExceptions = AutomationDriverException.class, enabled = true)
-	public void testFileNotFound(String propertyFileName) throws IOException, AutomationDriverException {
+	@Test(description = "testFileNotFound", dataProvider = "propertyFileNotFound", expectedExceptions = AdException.class, enabled = true)
+	public void testFileNotFound(String propertyFileName) throws IOException, AdException {
 		object.getObjectRepository(propertyFileName);
 	}
 

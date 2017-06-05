@@ -4,44 +4,44 @@ import org.testng.annotations.*;
 
 import static org.fest.assertions.api.Assertions.*;
 
-import raysullivan.operation.AutomationDriverEncryptDecrypt;
-import raysullivan.operation.AutomationDriverException;
+import raysullivan.operation.AdEncryptDecrypt;
+import raysullivan.operation.AdException;
 
-public class TestAutomationEncryptDecrypt {
+public class TestAdEncryptDecrypt {
 
 	@Test(dataProvider = "encryptValues", description = "encryptString", enabled = true)
 	public void encryptString(String toEncrypt, String keyString, String encrypted) throws Exception {
-		String newString = AutomationDriverEncryptDecrypt.encrypt(toEncrypt, keyString);
+		String newString = AdEncryptDecrypt.encrypt(toEncrypt, keyString);
 		// System.out.println("Encrypt " + toEncrypt + ":\t" + newString);
 		assertThat(newString).isEqualTo(encrypted);
 	}
 
-	@Test(dataProvider = "encryptValuesExceptions", description = "encryptStringExceptions", expectedExceptions = AutomationDriverException.class, enabled = true)
+	@Test(dataProvider = "encryptValuesExceptions", description = "encryptStringExceptions", expectedExceptions = AdException.class, enabled = true)
 	public void encryptStringExceptions(String toEncrypt, String keyString) throws Exception {
-		AutomationDriverEncryptDecrypt.decrypt(toEncrypt, keyString);
+		AdEncryptDecrypt.decrypt(toEncrypt, keyString);
 	}
 
 	@Test(dataProvider = "encryptValuesBad", description = "encryptString", enabled = true)
 	public void encryptStringBad(String toEncrypt, String keyString, String encrypted) throws Exception {
-		String newString = AutomationDriverEncryptDecrypt.encrypt(toEncrypt, keyString);
+		String newString = AdEncryptDecrypt.encrypt(toEncrypt, keyString);
 		// System.out.println("Encrypt " + toEncrypt + ":\t" + newString);
 		assertThat(newString).isNotEqualTo(encrypted);
 	}
 
 	@Test(dataProvider = "decryptValues", description = "decryptString", enabled = true)
 	public final void decryptString(String encryptedData, String keyString, String resultString) throws Exception {
-		assertThat(AutomationDriverEncryptDecrypt.decrypt(encryptedData, keyString)).isEqualTo(resultString);
+		assertThat(AdEncryptDecrypt.decrypt(encryptedData, keyString)).isEqualTo(resultString);
 	}
 
-	@Test(dataProvider = "decryptValuesExceptions", description = "decryptStringExceptions", expectedExceptions = AutomationDriverException.class, enabled = true)
+	@Test(dataProvider = "decryptValuesExceptions", description = "decryptStringExceptions", expectedExceptions = AdException.class, enabled = true)
 	public final void decryptStringExceptions(String encryptedData, String keyString, String resultString)
 			throws Exception {
-		AutomationDriverEncryptDecrypt.decrypt(encryptedData, keyString);
+		AdEncryptDecrypt.decrypt(encryptedData, keyString);
 	}
 
 	@Test(dataProvider = "decryptValuesInvalid", description = "decryptStringInvalid", enabled = true)
 	public final void decryptStringBad(String encryptedData, String keyString, String resultString) throws Exception {
-		assertThat(AutomationDriverEncryptDecrypt.decrypt(encryptedData, keyString)).isNotEqualTo(resultString);
+		assertThat(AdEncryptDecrypt.decrypt(encryptedData, keyString)).isNotEqualTo(resultString);
 	}
 
 	@DataProvider

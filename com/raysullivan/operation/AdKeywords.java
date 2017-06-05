@@ -8,20 +8,20 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
-public class AutomationDriverKeywords {
-	private static AutomationDriverVariable var = null;
-	private static AutomationDriverUtil util = new AutomationDriverUtil();
-	private static AutomationDriverBrowser browser = new AutomationDriverBrowser(null, null);
+public class AdKeywords {
+	private static AdVariable var = null;
+	private static AdUtil util = new AdUtil();
+	private static AdBrowser browser = new AdBrowser(null, null);
 
 	public static String[] validateAssertVariables(String vName1, String vName2, String operation)
-			throws AutomationDriverException {
-		var = new AutomationDriverVariable();
+			throws AdException {
+		var = new AdVariable();
 		String[] variableNames = { var.validateVariableName(vName1), var.validateVariableName(vName2) };
 		return variableNames;
 	}
 
-	public String assertEqual(String variableName1, String variableName2, AutomationDriverVariable var)
-			throws AutomationDriverException {
+	public String assertEqual(String variableName1, String variableName2, AdVariable var)
+			throws AdException {
 		if (var.getVariableValue(variableName1).equals(var.getVariableValue(variableName2))) {
 			return util.getSuccessString();
 		} else {
@@ -29,8 +29,8 @@ public class AutomationDriverKeywords {
 		}
 	}
 
-	public String assertNotEqual(String variableName1, String variableName2, AutomationDriverVariable var)
-			throws AutomationDriverException {
+	public String assertNotEqual(String variableName1, String variableName2, AdVariable var)
+			throws AdException {
 		if (!var.getVariableValue(variableName1).equals(var.getVariableValue(variableName2))) {
 			return util.getSuccessString();
 		} else {
@@ -38,8 +38,8 @@ public class AutomationDriverKeywords {
 		}
 	}
 
-	public String assertContains(String variableName1, String variableName2, AutomationDriverVariable var)
-			throws AutomationDriverException {
+	public String assertContains(String variableName1, String variableName2, AdVariable var)
+			throws AdException {
 		if (var.getVariableValue(variableName1).contains(var.getVariableValue(variableName2))) {
 			return util.getSuccessString();
 		} else {
@@ -47,8 +47,8 @@ public class AutomationDriverKeywords {
 		}
 	}
 
-	public String assertNotContains(String variableName1, String variableName2, AutomationDriverVariable var)
-			throws AutomationDriverException {
+	public String assertNotContains(String variableName1, String variableName2, AdVariable var)
+			throws AdException {
 		if (!var.getVariableValue(variableName1).contains(var.getVariableValue(variableName2))) {
 			return util.getSuccessString();
 		} else {
@@ -58,7 +58,7 @@ public class AutomationDriverKeywords {
 
 	public String click(Properties p, String objectName, String propertyName) throws Exception {
 		try {
-			browser.findElement(AutomationDriverGetPropertyAttribute.getObject(p, objectName, propertyName)).click();
+			browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)).click();
 			return util.getSuccessString();
 		} catch (NoSuchElementException nsee) {
 			return "Object " + objectName + " could not be found due to a NoSuchElementException";
@@ -73,7 +73,7 @@ public class AutomationDriverKeywords {
 
 	public String clickOn(Properties p, String objectName, String propertyName, WebElement checkbox) throws Exception {
 		try {
-			checkbox = browser.findElement(AutomationDriverGetPropertyAttribute.getObject(p, objectName, propertyName));
+			checkbox = browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName));
 			checkbox.click();
 			if (checkbox.isSelected() == true) {
 				return util.getSuccessString();
@@ -185,72 +185,72 @@ public class AutomationDriverKeywords {
 	}
 
 	public String setText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2) {
+			String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String select(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2) {
+			String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String deselect(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2) {
+			String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String selectByIndex(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2) {
+			String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String deselectByIndex(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2) {
+			String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String gotoAddress(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2) {
+			String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String assertUrl(String objectName, String value, String variable, String operation,
-			AutomationDriverVariable var2) {
+			AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String assertText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2) {
+			String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String createVar(String value, String variable, String operation, AutomationDriverVariable var2) {
+	public String createVar(String value, String variable, String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String containsText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2) {
+			String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String storeText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AutomationDriverVariable var2) {
+			String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String assertAttribute(Properties p, String objectName, String propertyName, String value, String variable,
-			String valueType, String operation, AutomationDriverVariable var2) {
+			String valueType, String operation, AdVariable var2) {
 		// TODO Auto-generated method stub
 		return null;
 	}

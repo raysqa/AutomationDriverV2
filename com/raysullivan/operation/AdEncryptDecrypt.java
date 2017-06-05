@@ -6,7 +6,7 @@ import java.util.Base64;
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 
-public class AutomationDriverEncryptDecrypt {
+public class AdEncryptDecrypt {
 	private static final String ALGORITHM = "AES";
 
 	private static Key generateKey(byte[] keyValue) throws Exception {
@@ -14,7 +14,7 @@ public class AutomationDriverEncryptDecrypt {
 			final Key key = new SecretKeySpec(keyValue, ALGORITHM);
 			return key;
 		} catch (IllegalArgumentException iae) {
-			throw new AutomationDriverException(
+			throw new AdException(
 					"IllegalArgumentException:  Encrypt/decrypt keystring cannot be null or blank");
 		}
 	}
@@ -27,10 +27,10 @@ public class AutomationDriverEncryptDecrypt {
 			final Key key = generateKey(keyValue);
 			cipher.init(Cipher.ENCRYPT_MODE, key);
 		} catch (NullPointerException npe) {
-			throw new AutomationDriverException("NullPointerException:  Encrypt keystring cannot be null or blank");
+			throw new AdException("NullPointerException:  Encrypt keystring cannot be null or blank");
 
 		} catch (InvalidKeyException ike) {
-			throw new AutomationDriverException(
+			throw new AdException(
 					"InvalidKeyException:  Decrypt keystring must be 16 characters; keystring length of "
 							+ keyString.length() + " is invalid.  Keystring: " + keyString);
 		}
@@ -40,7 +40,7 @@ public class AutomationDriverEncryptDecrypt {
 			final String encryptedValue = Base64.getEncoder().encodeToString(encVal);
 			return encryptedValue;
 		} catch (NullPointerException npe) {
-			throw new AutomationDriverException("Error:  String to encrypt cannot be null");
+			throw new AdException("Error:  String to encrypt cannot be null");
 		}
 
 	}
@@ -53,9 +53,9 @@ public class AutomationDriverEncryptDecrypt {
 			cipher.init(Cipher.DECRYPT_MODE, key);
 
 		} catch (NullPointerException npe) {
-			throw new AutomationDriverException("NullPointerException:  Decrypt keystring cannot be null or blank");
+			throw new AdException("NullPointerException:  Decrypt keystring cannot be null or blank");
 		} catch (InvalidKeyException ike) {
-			throw new AutomationDriverException(
+			throw new AdException(
 					"InvalidKeyException:  Decrypt keystring must be 16 characters; keystring length of "
 							+ keyString.length() + " is invalid.  Keystring: " + keyString);
 		}
@@ -67,7 +67,7 @@ public class AutomationDriverEncryptDecrypt {
 
 			return decryptedValue;
 		} catch (IllegalArgumentException | BadPaddingException | NullPointerException e) {
-			throw new AutomationDriverException("Error:  String to decrypt is not a valid AES cipher.");
+			throw new AdException("Error:  String to decrypt is not a valid AES cipher.");
 		}
 	}
 

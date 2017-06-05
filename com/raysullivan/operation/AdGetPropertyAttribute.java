@@ -4,8 +4,8 @@ import java.util.Properties;
 
 import org.openqa.selenium.By;
 
-public class AutomationDriverGetPropertyAttribute {
-	private static AutomationDriverUtil util = new AutomationDriverUtil();
+public class AdGetPropertyAttribute {
+	private static AdUtil util = new AdUtil();
 
 	public static By getObject(Properties p, String objectName, String propertyName) throws Exception {
 		String objectType = "none";
@@ -17,7 +17,7 @@ public class AutomationDriverGetPropertyAttribute {
 			objectType = p.getProperty(objectName).substring(p.getProperty(objectName).indexOf(propDelimiter) + 1)
 					.trim();
 		} catch (StringIndexOutOfBoundsException | NullPointerException e) {
-			throw new AutomationDriverException(
+			throw new AdException(
 					"Error: object '" + objectName + "' not found in property file '" + propertyName + "'.");
 		}
 		switch (objectType.toUpperCase()) {
@@ -38,7 +38,7 @@ public class AutomationDriverGetPropertyAttribute {
 		case "XPATH":
 			return By.xpath(newObjectName);
 		default:
-			throw new AutomationDriverException(
+			throw new AdException(
 					"Error : '" + objectType + "' not a valid object type for object name '" + newObjectName + "'.");
 		}
 		

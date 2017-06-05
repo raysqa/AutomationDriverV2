@@ -35,12 +35,12 @@ import com.lowagie.text.pdf.PdfWriter;
 /**
  * PDFListener
  */
-public class AutomationDriverPDFListener implements ITestListener {
+public class AdPDFListener implements ITestListener {
 	/**
 	 * util
 	 */
 	
-	private AutomationDriverUtil util  = new AutomationDriverUtil();
+	private AdUtil util  = new AdUtil();
 	/**
 	 * Document
 	 */
@@ -77,7 +77,7 @@ public class AutomationDriverPDFListener implements ITestListener {
 	/**
 	 * PDFListener
 	 */
-	public AutomationDriverPDFListener() {
+	public AdPDFListener() {
 		log("PDFListener()");
 
 		this.document = new Document();
@@ -167,7 +167,7 @@ public class AutomationDriverPDFListener implements ITestListener {
 		String ssfile = baseScreenshot + "FailureScreenshot_"
 				+ dateFormat.format(new Date()) + ".png";
 		try {
-			AutomationDriverBrowser.takeScreenShot(AutomationDriverBrowser.getDriver(null),
+			AdBrowser.takeScreenShot(AdBrowser.getDriver(null),
 					ssfile);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

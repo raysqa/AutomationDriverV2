@@ -2,8 +2,8 @@ package raysullivan.unitTest;
 
 import org.testng.annotations.*;
 
-import raysullivan.operation.AutomationDriverException;
-import raysullivan.operation.AutomationDriverOpenExcelSpreadsheet;
+import raysullivan.operation.AdException;
+import raysullivan.operation.AdOpenExcelSpreadsheet;
 
 import static org.fest.assertions.api.Assertions.*;
 
@@ -11,19 +11,19 @@ import org.apache.poi.ss.usermodel.Sheet;
 
 
 
-public class TestExcelSpreadsheet {
+public class TestAdOpenExcelSpreadsheet {
 
 	private Sheet sheet = null;
 
 	@Test(dataProvider = "validFiles", description = "validKBTestFile", enabled = true)
 	public void validKBTestFile(String filepath, String fileName, String sheetName) throws Exception {
-		sheet = AutomationDriverOpenExcelSpreadsheet.readKDSheet(filepath, fileName, sheetName);
+		sheet = AdOpenExcelSpreadsheet.readKDSheet(filepath, fileName, sheetName);
 		assertThat(sheet).isNotNull();
 	}
 
-	@Test(dataProvider = "invalidFiles", description = "invalidKBTestFile", expectedExceptions = AutomationDriverException.class, enabled = true)
+	@Test(dataProvider = "invalidFiles", description = "invalidKBTestFile", expectedExceptions = AdException.class, enabled = true)
 	public void invalidKBTestFile(String filepath, String fileName, String sheetName) throws Exception {
-		sheet = AutomationDriverOpenExcelSpreadsheet.readKDSheet(filepath, fileName, sheetName);
+		sheet = AdOpenExcelSpreadsheet.readKDSheet(filepath, fileName, sheetName);
 	}
 	@DataProvider
 	public final Object[][] validFiles() {

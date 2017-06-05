@@ -20,28 +20,27 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AutomationDriverBrowser {
-	private static AutomationDriverUtil util = new AutomationDriverUtil();
-	private static AutomationDriverKeywords kw = new AutomationDriverKeywords();
+public class AdBrowser {
+	private static AdUtil util = new AdUtil();
+	private static AdKeywords kw = new AdKeywords();
 	private static WebDriver driver;
 	private WebDriverWait waitVar;
 	private static final int millisec = 1000;
 	private long starttime, endtime;
 
-	public AutomationDriverBrowser(WebDriver driver, WebDriverWait waitVar) {
+	public AdBrowser(WebDriver driver, WebDriverWait waitVar) {
 		this.driver = driver;
 		this.waitVar = waitVar;
 	}
 
-	public String[] perform(Properties p, String propertyName, String cell[], AutomationDriverVariable var,
-			AutomationDriverUtil tool) throws Exception {
+	public String[] perform(Properties p, String propertyName, String cell[], AdVariable var,
+			AdUtil tool) throws Exception {
 		String operation = cell[1];
 		String objectName = cell[2];
 		String value = cell[3];
 		String valueType = cell[4];
 		String variable = cell[5];
-		String variable1 = cell[3];
-		String variable2 = cell[5];
+		String variable2 = cell[6];
 		String returnMessage[] = new String[3];
 		returnMessage[1] = util.getErrorString(); // actual result
 		returnMessage[2] = util.getSuccessString(); // expected result
@@ -112,16 +111,16 @@ public class AutomationDriverBrowser {
 			returnMessage[1] = kw.assertText(p, objectName, propertyName, value, variable, operation, var);
 			break;
 		case "ASSERTEQUAL":
-			returnMessage[1] = kw.assertEqual(variable1, variable2, var);
+			returnMessage[1] = kw.assertEqual(variable, variable2, var);
 			break;
 		case "ASSERTNOTEQUAL":
-			returnMessage[1] = kw.assertNotEqual(variable1, variable2, var);
+			returnMessage[1] = kw.assertNotEqual(variable, variable2, var);
 			break;
 		case "ASSERTCONTAINS":
-			returnMessage[1] = kw.assertContains(variable1, variable2, var);
+			returnMessage[1] = kw.assertContains(variable, variable2, var);
 			break;
 		case "ASSERTNOTCONTAINS":
-			returnMessage[1] = kw.assertNotContains(variable1, variable2, var);
+			returnMessage[1] = kw.assertNotContains(variable, variable2, var);
 			break;
 		case "CREATEVARIABLE":
 			returnMessage[1] = kw.createVar(value, variable, operation, var);
@@ -189,7 +188,7 @@ public class AutomationDriverBrowser {
 			break;
 		default:
 			// error
-			throw new AutomationDriverException("Error: " + operation + " is not a valid Keyword");
+			throw new AdException("Error: " + operation + " is not a valid Keyword");
 		}
 		endtime = new Date().getTime();
 		returnMessage[0] = Float.toString(util.calcEt(endtime, starttime, millisec));
@@ -209,9 +208,9 @@ public class AutomationDriverBrowser {
 		FileUtils.deleteQuietly(srcFile);
 	}
 
-	public static WebDriver getDriver(final FirefoxProfile profile) throws AutomationDriverException {
+	public static WebDriver getDriver(final FirefoxProfile profile) throws AdException {
 		if (util.getBrowser() == null || util.getBrowser() == "") {
-			throw new AutomationDriverException("Browser cannot be blank or null");
+			throw new AdException("Browser cannot be blank or null");
 		}
 		if (driver == null) {
 			switch (util.getBrowser().toLowerCase()) {
@@ -238,7 +237,7 @@ public class AutomationDriverBrowser {
 				}
 				break;
 			default:
-				throw new AutomationDriverException("Browser " + util.getBrowser() + " not supported");
+				throw new AdException("Browser " + util.getBrowser() + " not supported");
 			}
 			try {
 				driver.manage().window().maximize();

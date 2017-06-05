@@ -15,11 +15,11 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import raysullivan.operation.AutomationDriverBrowser;
-import raysullivan.operation.AutomationDriverUtil;
+import raysullivan.operation.AdBrowser;
+import raysullivan.operation.AdUtil;
 
-public class TestTakeScreenShot {
-	AutomationDriverUtil util = new AutomationDriverUtil();
+public class TestAdTakeScreenShot {
+	AdUtil util = new AdUtil();
 	private FirefoxProfile profile = null;
 	private ProfilesIni allProfiles = null;
 
@@ -45,7 +45,7 @@ public class TestTakeScreenShot {
 		util.setBrowser("Firefox");
 		allProfiles = new ProfilesIni();
 		profile = allProfiles.getProfile("TestProfile");
-		driver = AutomationDriverBrowser.getDriver(profile);
+		driver = AdBrowser.getDriver(profile);
 	}
 
 	@Test(description = "testScreenShot", enabled = true)
@@ -54,7 +54,7 @@ public class TestTakeScreenShot {
 		String baseScreenshot = util.getTestReportPath();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH.mm.ss");
 		String ssfile = baseScreenshot + "FailureScreenshot_" + dateFormat.format(new Date()) + ".png";
-		AutomationDriverBrowser.takeScreenShot(AutomationDriverBrowser.getDriver(null), ssfile);
+		AdBrowser.takeScreenShot(AdBrowser.getDriver(null), ssfile);
 		File f = new File(ssfile);
 		if (!f.exists() || f.isDirectory()) {
 			fail = true;

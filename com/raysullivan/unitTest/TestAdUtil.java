@@ -2,8 +2,8 @@ package raysullivan.unitTest;
 
 import org.testng.annotations.*;
 
-import raysullivan.operation.AutomationDriverException;
-import raysullivan.operation.AutomationDriverUtil;
+import raysullivan.operation.AdException;
+import raysullivan.operation.AdUtil;
 
 import static org.fest.assertions.api.Assertions.*;
 
@@ -15,11 +15,11 @@ import static org.fest.assertions.api.Assertions.*;
  * @author rsullivan
  *
  */
-public class TestAutomationDriverUtil {
+public class TestAdUtil {
 
 	private static final String TEST_REPORT_PATH = System.getProperty("user.dir") + "\\resource\\Test Report\\";
 	private static final String TEST_PROPERTY_PATH = System.getProperty("user.dir") + "\\resource\\Test Properties\\";
-	private AutomationDriverUtil util = new AutomationDriverUtil();
+	private AdUtil util = new AdUtil();
 	private static int millisec = 1000, roundup = 1000, TIMEOUT = 20, SHEET_ITERATIONS = 1;
 	private static boolean CAPTURE_CSV = false, CAPTURE_VIDEO = true;
 	private static String TEST_CASE = "TestCase", SPREADSHEET = "Spreadsheet.xlsx", WORKSHEET = "Worksheet",
@@ -43,7 +43,7 @@ public class TestAutomationDriverUtil {
 		cell[4] = cell4;
 		assertThat(util.valueCellFormat(cell)).isEqualTo(expected);
 	}
-	@Test(dataProvider = "valueCellFormatException", description = "valueCellFormatExceptionTest", expectedExceptions = AutomationDriverException.class, enabled = true)
+	@Test(dataProvider = "valueCellFormatException", description = "valueCellFormatExceptionTest", expectedExceptions = AdException.class, enabled = true)
 	public final void valueCellFormatExceptionTest(final String cell1, String cell3, final String cell4, String expected)
 			throws Exception {
 		String[] cell = new String[6];

@@ -5,27 +5,27 @@ import static org.fest.assertions.Assertions.assertThat;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import raysullivan.operation.AutomationDriverException;
-import raysullivan.operation.AutomationDriverVariable;
+import raysullivan.operation.AdException;
+import raysullivan.operation.AdVariable;
 
-public class TestAutomationDriverVariable {
-	AutomationDriverVariable var = new AutomationDriverVariable();
+public class TestAdVariable {
+	AdVariable var = new AdVariable();
 
 	@Test(description = "validateVariable", dataProvider = "validVariableNames", enabled = true)
 	public final void validateVariable(String fullyFormedVariableNameString, String newVariableName)
-			throws AutomationDriverException {
+			throws AdException {
 		assertThat(var.validateVariableName(fullyFormedVariableNameString)).isEqualTo(newVariableName);
 	}
 
-	@Test(description = "validateVariableInvalid", dataProvider = "invalidVariableNames", expectedExceptions = AutomationDriverException.class, enabled = true)
+	@Test(description = "validateVariableInvalid", dataProvider = "invalidVariableNames", expectedExceptions = AdException.class, enabled = true)
 	public final void validateVariableInvalid(String fullyFormedVariableNameString, String newVariableName)
-			throws AutomationDriverException {
+			throws AdException {
 		assertThat(var.validateVariableName(fullyFormedVariableNameString)).isEqualTo(newVariableName);
 	}
 
 	@Test(dataProvider = "setVariableOverwrite", description = "setVariableAndOverwrite", enabled = true)
 	public void setVariableAndOverwrite(String variableName, String variableValue, String newVariableValue)
-			throws AutomationDriverException {
+			throws AdException {
 		assertThat(var.setVariableValue(variableName, variableValue)).isEqualTo(variableValue);
 		assertThat(variableValue).isEqualTo(var.getVariableValue(variableName));
 		assertThat(var.setVariableValue(variableName, newVariableValue)).isEqualTo(newVariableValue);
@@ -35,7 +35,7 @@ public class TestAutomationDriverVariable {
 
 	@Test(dataProvider = "setVariableMultiple", description = "setVariableMultiple", enabled = true)
 	public void setVariableMultiple(String variableName, String variableValue, String newVariableName,
-			String newVariableValue) throws AutomationDriverException {
+			String newVariableValue) throws AdException {
 		assertThat(var.setVariableValue(variableName, variableValue)).isEqualTo(variableValue);
 		assertThat(var.setVariableValue(newVariableName, newVariableValue)).isEqualTo(newVariableValue);
 		assertThat(variableValue).isEqualTo(var.getVariableValue(variableName));
@@ -43,13 +43,13 @@ public class TestAutomationDriverVariable {
 		assertThat(var.getVariableValue(variableName)).isNotEqualTo(var.getVariableValue(newVariableName));
 	}
 
-	@Test(description = "setinvalidVariableValue", dataProvider = "setVariableInvalid", expectedExceptions = AutomationDriverException.class, enabled = true)
-	public void setinvalidVariableValue(String variableName, String variableValue) throws AutomationDriverException {
+	@Test(description = "setinvalidVariableValue", dataProvider = "setVariableInvalid", expectedExceptions = AdException.class, enabled = true)
+	public void setinvalidVariableValue(String variableName, String variableValue) throws AdException {
 		var.setVariableValue(variableName, variableValue);
 	}
 
-	@Test(description = "validateAssertVariables", dataProvider = "assertVariables", expectedExceptions = AutomationDriverException.class, enabled = true)
-	public void validateAssertVariables(String variable1, String variable2) throws AutomationDriverException {
+	@Test(description = "validateAssertVariables", dataProvider = "assertVariables", expectedExceptions = AdException.class, enabled = true)
+	public void validateAssertVariables(String variable1, String variable2) throws AdException {
 		var.checkAssertVariables(variable1, variable2);
 	}
 

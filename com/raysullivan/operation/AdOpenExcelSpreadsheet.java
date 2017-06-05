@@ -9,7 +9,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class AutomationDriverOpenExcelSpreadsheet {
+public class AdOpenExcelSpreadsheet {
 
 	public static Sheet readKDSheet(String filePath, String fileName, String sheetName) throws Exception {
 		final File file = new File(filePath + "\\" + fileName);
@@ -17,7 +17,7 @@ public class AutomationDriverOpenExcelSpreadsheet {
 		try {
 			inputStream = new FileInputStream(file);
 		} catch (FileNotFoundException fnf) {
-			throw new AutomationDriverException("Error:  Test Spreadsheet " + fileName + " at location " + filePath
+			throw new AdException("Error:  Test Spreadsheet " + fileName + " at location " + filePath
 					+ " with worksheet " + sheetName + " not found.");
 		}
 		Workbook workbook = null;
@@ -30,7 +30,7 @@ public class AutomationDriverOpenExcelSpreadsheet {
 		}
 		final Sheet sheet = workbook.getSheet(sheetName);
 		if (sheet == null) {
-			throw new AutomationDriverException("Error:  Test Spreadsheet " + fileName + " at location " + filePath
+			throw new AdException("Error:  Test Spreadsheet " + fileName + " at location " + filePath
 					+ " does not contain worksheet " + sheetName + ".");
 		}
 		return sheet;

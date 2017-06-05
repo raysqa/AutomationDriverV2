@@ -2,9 +2,9 @@ package raysullivan.unitTest;
 
 import org.testng.annotations.Test;
 
-import raysullivan.operation.AutomationDriverBrowser;
-import raysullivan.operation.AutomationDriverException;
-import raysullivan.operation.AutomationDriverUtil;
+import raysullivan.operation.AdBrowser;
+import raysullivan.operation.AdException;
+import raysullivan.operation.AdUtil;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.DataProvider;
@@ -13,9 +13,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
 
-public class TestAutomationDriverBrowser {
+public class TestAdBrowser {
 
-	private AutomationDriverUtil util = new AutomationDriverUtil();
+	private AdUtil util = new AdUtil();
 	private FirefoxProfile profile = null;
 	private ProfilesIni allProfiles = null;
 
@@ -34,20 +34,20 @@ public class TestAutomationDriverBrowser {
 	Thread.sleep(1000);
 	}
 	
-	@Test(description = "invalidDriver", dataProvider = "invalidBrowsers", expectedExceptions = AutomationDriverException.class, enabled=true)
-	public void invalidDriver(String browser, String webProfile) throws AutomationDriverException, Exception {
+	@Test(description = "invalidDriver", dataProvider = "invalidBrowsers", expectedExceptions = AdException.class, enabled=true)
+	public void invalidDriver(String browser, String webProfile) throws AdException, Exception {
 		util.setBrowser(browser);
 		allProfiles = new ProfilesIni();
 		profile = allProfiles.getProfile(webProfile);
-		driver = AutomationDriverBrowser.getDriver(profile);
+		driver = AdBrowser.getDriver(profile);
 	}
 	
 	@Test(description = "getDriverWithProfile", dataProvider = "browsersWithProfile", enabled=true)
-	public void getDriverWithProfile(String browser, String webProfile) throws AutomationDriverException, Exception {
+	public void getDriverWithProfile(String browser, String webProfile) throws AdException, Exception {
 		util.setBrowser(browser);
 		allProfiles = new ProfilesIni();
 		profile = allProfiles.getProfile(webProfile);
-		driver = AutomationDriverBrowser.getDriver(profile);
+		driver = AdBrowser.getDriver(profile);
 	}
 
 	@DataProvider

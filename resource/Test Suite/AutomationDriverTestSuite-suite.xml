@@ -3,18 +3,18 @@
 <suite name="Automation Driver Test Suite" thread-count = "20">
     <parameter name="testName" value="UnitTestReport"/>
     <listeners>
-    	<listener class-name="raysullivan.operation.AutomationDriverPDFListener"/>
+    	<listener class-name="raysullivan.operation.AdPDFListener"/>
     </listeners>
   <test verbose="2" name="Driver Test">
     <classes>
-      <class name="raysullivan.unitTest.TestAutomationDriverUtil"/>
-      <class name="raysullivan.unitTest.TestAutomationEncryptDecrypt"/>
-      <class name="raysullivan.unitTest.TestExcelSpreadsheet"/>
-      <class name="raysullivan.unitTest.TestTakeScreenShot"/>
-      <class name="raysullivan.unitTest.TestAutomationDriverBrowserProperties"/>      
-      <class name="raysullivan.unitTest.TestAutomationDriverVariable"/>
-      <class name="raysullivan.unitTest.TestAutomationDriverGetPropertyAttribute"/>
-      <class name="raysullivan.unitTest.TestAutomationDriverKeywords"/>
+      <class name="raysullivan.unitTest.TestAdUtil"/>
+      <class name="raysullivan.unitTest.TestAdEncryptDecrypt"/>
+      <class name="raysullivan.unitTest.TestAdOpenExcelSpreadsheet"/>
+      <class name="raysullivan.unitTest.TestAdTakeScreenShot"/>
+      <class name="raysullivan.unitTest.TestAdBrowserProperties"/>      
+      <class name="raysullivan.unitTest.TestAdVariable"/>
+      <class name="raysullivan.unitTest.TestAdGetPropertyAttribute"/>
+      <class name="raysullivan.unitTest.TestAdKeywords"/>
     </classes>
   </test> <!-- Driver Test -->
 </suite> <!-- Automation Driver Test Suite -->

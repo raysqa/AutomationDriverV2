@@ -1,6 +1,6 @@
 package raysullivan.fixture;
 
-import raysullivan.operation.AutomationDriverUtil;
+import raysullivan.operation.AdUtil;
 
 
 //import fit.ColumnFixture;
@@ -8,7 +8,7 @@ import raysullivan.operation.AutomationDriverUtil;
 public class CalcETFixture {
 	private long end, start;
 	private int millisec = 1000;
-	private AutomationDriverUtil util = new AutomationDriverUtil();
+	private AdUtil util = new AdUtil();
 
 	public void setStart(long start) {
 		this.start = start;

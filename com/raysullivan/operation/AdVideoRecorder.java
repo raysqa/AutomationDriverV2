@@ -9,7 +9,7 @@ import org.monte.screenrecorder.ScreenRecorder;
 import static org.monte.media.AudioFormatKeys.*;
 import static org.monte.media.VideoFormatKeys.*;
 
-public class AutomationDriverVideoRecorder {
+public class AdVideoRecorder {
 	private static ScreenRecorder screenRecorder;
 
 	public static void startRecording(String fileName, String filePath)
@@ -25,7 +25,7 @@ public class AutomationDriverVideoRecorder {
 				.getLocalGraphicsEnvironment().getDefaultScreenDevice()
 				.getDefaultConfiguration();
 
-		screenRecorder = new AutomationDriverSpecializedScreenRecorder(
+		screenRecorder = new AdSpecializedScreenRecorder(
 				gc,
 				captureSize,
 				new Format(MediaTypeKey, MediaType.FILE, MimeTypeKey, MIME_AVI),

@@ -1,6 +1,6 @@
 package raysullivan.operation;
 
-public class AutomationDriverUtil {
+public class AdUtil {
 
 	private String decimalPlaces, spreadsheet, worksheet, propertyName;
 	private String ERROR = "Error";
@@ -39,7 +39,7 @@ public class AutomationDriverUtil {
 			decimalPlaces = ".0";
 			error = true;
 		} catch (NullPointerException npe) {
-			throw new AutomationDriverException("Keyword or value cannot be null");
+			throw new AdException("Keyword or value cannot be null");
 		}
 		try{
 		if (valueType.equalsIgnoreCase("TEXT") || keyword.equalsIgnoreCase("PAUSE")
@@ -55,11 +55,11 @@ public class AutomationDriverUtil {
 			value = value + "0";
 		}
 		if (valueType.equalsIgnoreCase("ENCRYPT")) {
-			value = AutomationDriverEncryptDecrypt.decrypt(value, getKeyString());
+			value = AdEncryptDecrypt.decrypt(value, getKeyString());
 		}
 		return value;
 		} catch (NullPointerException npe) {
-			throw new AutomationDriverException("Keyword or value cannot be null");
+			throw new AdException("Keyword or value cannot be null");
 		}
 	}
 
@@ -181,7 +181,7 @@ public class AutomationDriverUtil {
 	}
 
 	public void setBrowser(String bROWSER) {
-		AutomationDriverUtil.browser = bROWSER;
+		AdUtil.browser = bROWSER;
 	}
 
 	public void setWebProfile(String wEB_PROFILE) {

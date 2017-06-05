@@ -1,6 +1,6 @@
 package raysullivan.operation;
 
-public class AutomationDriverException extends Exception {
+public class AdException extends Exception {
 
 
 	private static final long serialVersionUID = 1L;
@@ -8,20 +8,20 @@ public class AutomationDriverException extends Exception {
 	/**
 	 * AutomationDriverException
 	 */
-	public AutomationDriverException(){}
+	public AdException(){}
 	
 	/**
 	 * AutomationDriverException
 	 * @param message
 	 */
-	public AutomationDriverException( String message){
+	public AdException( String message){
 		super(message);
 	}
 	/**
 	 * AutomationDriverException
 	 * @param cause
 	 */
-    public AutomationDriverException (Throwable cause) {
+    public AdException (Throwable cause) {
         super (cause);
     }
     /**
@@ -29,7 +29,7 @@ public class AutomationDriverException extends Exception {
      * @param message
      * @param cause
      */
-    public AutomationDriverException (String message, Throwable cause) {
+    public AdException (String message, Throwable cause) {
         super (message, cause);
     }
 }

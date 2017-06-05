@@ -2,9 +2,9 @@ package raysullivan.unitTest;
 
 import org.testng.annotations.Test;
 
-import raysullivan.operation.AutomationDriverReadProperties;
-import raysullivan.operation.AutomationDriverException;
-import raysullivan.operation.AutomationDriverGetPropertyAttribute;
+import raysullivan.operation.AdReadProperties;
+import raysullivan.operation.AdException;
+import raysullivan.operation.AdGetPropertyAttribute;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
@@ -14,21 +14,21 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 
-public class TestAutomationDriverGetPropertyAttribute {
-	private AutomationDriverReadProperties object = new AutomationDriverReadProperties();
+public class TestAdGetPropertyAttribute {
+	private AdReadProperties object = new AdReadProperties();
 	Properties p = mock(Properties.class);
 
 	@Test(dataProvider = "validPropertyName", description = "getPropertyValid", enabled = true)
 	public void getPropertyValid(String propertyFileName, String objectName, String resultString) throws Exception {
 		p = object.getObjectRepository(propertyFileName);
-		By b = AutomationDriverGetPropertyAttribute.getObject(p, objectName, propertyFileName);
+		By b = AdGetPropertyAttribute.getObject(p, objectName, propertyFileName);
 		assertThat(b.toString()).isEqualTo(resultString);
 	}
 
-	@Test(dataProvider = "invalidPropertyName", description = "getPropertyInvalid", expectedExceptions = AutomationDriverException.class, enabled = true)
+	@Test(dataProvider = "invalidPropertyName", description = "getPropertyInvalid", expectedExceptions = AdException.class, enabled = true)
 	public void getPropertyInvalid(String propertyFileName, String objectName) throws Exception {
 		p = object.getObjectRepository(propertyFileName);
-		AutomationDriverGetPropertyAttribute.getObject(p, objectName, propertyFileName);
+		AdGetPropertyAttribute.getObject(p, objectName, propertyFileName);
 	}
 
 	@DataProvider

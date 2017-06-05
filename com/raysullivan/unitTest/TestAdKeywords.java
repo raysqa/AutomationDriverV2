@@ -2,36 +2,36 @@ package raysullivan.unitTest;
 
 import org.testng.annotations.Test;
 
-import raysullivan.operation.AutomationDriverException;
-import raysullivan.operation.AutomationDriverKeywords;
-import raysullivan.operation.AutomationDriverVariable;
+import raysullivan.operation.AdException;
+import raysullivan.operation.AdKeywords;
+import raysullivan.operation.AdVariable;
 
 import static org.fest.assertions.Assertions.assertThat;
 
 import org.testng.annotations.DataProvider;
 
-public class TestAutomationDriverKeywords {
-	AutomationDriverVariable var = new AutomationDriverVariable();
-	AutomationDriverKeywords kw = new AutomationDriverKeywords();
+public class TestAdKeywords {
+	AdVariable var = new AdVariable();
+	AdKeywords kw = new AdKeywords();
 
 	@Test(description = "TestValidateAssertVariables", dataProvider = "AssertVariablesValid", enabled = true)
 	public void TestValidateAssertVariables(String vName1, String vName2, String operation, String result1,
-			String result2) throws AutomationDriverException {
+			String result2) throws AdException {
 		String getVariable[] = new String[2];
-		getVariable = AutomationDriverKeywords.validateAssertVariables(vName1, vName2, operation);
+		getVariable = AdKeywords.validateAssertVariables(vName1, vName2, operation);
 		assertThat(getVariable[0]).isEqualTo(result1);
 		assertThat(getVariable[1]).isEqualTo(result2);
 	}
 
-	@Test(description = "TestValidateAssertVariablesInvalid", dataProvider = "AssertVariablesValidInvalid", expectedExceptions = AutomationDriverException.class, enabled = true)
+	@Test(description = "TestValidateAssertVariablesInvalid", dataProvider = "AssertVariablesValidInvalid", expectedExceptions = AdException.class, enabled = true)
 	public void TestValidateAssertVariablesInvalid(String vName1, String vName2, String operation)
-			throws AutomationDriverException {
-		AutomationDriverKeywords.validateAssertVariables(vName1, vName2, operation);
+			throws AdException {
+		AdKeywords.validateAssertVariables(vName1, vName2, operation);
 	}
 
 	@Test(description = "TestAssertEquals", dataProvider = "AssertEquals", enabled = true)
 	public void TestAssertEquals(String variableName1, String variableValue1, String variableName2,
-			String variableValue2, String returnString) throws AutomationDriverException {
+			String variableValue2, String returnString) throws AdException {
 		var.setVariableValue(variableName1, variableValue1);
 		var.setVariableValue(variableName2, variableValue2);
 		assertThat(kw.assertEqual(variableName1, variableName2, var)).isEqualTo(returnString);
@@ -39,7 +39,7 @@ public class TestAutomationDriverKeywords {
 
 	@Test(description = "TestAssertNotEquals", dataProvider = "AssertNotEquals", enabled = true)
 	public void TestAssertNotEquals(String variableName1, String variableValue1, String variableName2,
-			String variableValue2, String returnString) throws AutomationDriverException {
+			String variableValue2, String returnString) throws AdException {
 		var.setVariableValue(variableName1, variableValue1);
 		var.setVariableValue(variableName2, variableValue2);
 		assertThat(kw.assertNotEqual(variableName1, variableName2, var)).isEqualTo(returnString);
@@ -47,7 +47,7 @@ public class TestAutomationDriverKeywords {
 
 	@Test(description = "TestAssertContains", dataProvider = "AssertContains", enabled = true)
 	public void TestAssertContains(String variableName1, String variableValue1, String variableName2,
-			String variableValue2, String returnString) throws AutomationDriverException {
+			String variableValue2, String returnString) throws AdException {
 		var.setVariableValue(variableName1, variableValue1);
 		var.setVariableValue(variableName2, variableValue2);
 		assertThat(kw.assertContains(variableName1, variableName2, var)).isEqualTo(returnString);
@@ -55,7 +55,7 @@ public class TestAutomationDriverKeywords {
 
 	@Test(description = "TestAssertNotContains", dataProvider = "AssertNotContains", enabled = true)
 	public void TestAssertNotContains(String variableName1, String variableValue1, String variableName2,
-			String variableValue2, String returnString) throws AutomationDriverException {
+			String variableValue2, String returnString) throws AdException {
 		var.setVariableValue(variableName1, variableValue1);
 		var.setVariableValue(variableName2, variableValue2);
 		assertThat(kw.assertNotContains(variableName1, variableName2, var)).isEqualTo(returnString);

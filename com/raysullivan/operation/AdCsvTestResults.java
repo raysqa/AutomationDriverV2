@@ -10,7 +10,7 @@ import com.opencsv.*;
  * @author rsullivan
  *
  */
-public class AutomationDriverCsvTestResults {
+public class AdCsvTestResults {
 	/**
 	 * writeExcel Creates a datasheet, worksheet and inserts rows
 	 * 
@@ -23,7 +23,7 @@ public class AutomationDriverCsvTestResults {
 	public void writeCsv(String filePath, String fileName, String sheetName,
 			String[] dataToWrite) throws Exception {
 		// Get the utility class
-		AutomationDriverUtil util = new AutomationDriverUtil();
+		AdUtil util = new AdUtil();
 		// Create an object of File class to open .csv file
 		String csvFile = filePath + "\\" + fileName + "_" + sheetName + ".csv";
 		File file = new File(csvFile);
@@ -39,7 +39,7 @@ public class AutomationDriverCsvTestResults {
 		String e = "encrypt";
 		if(dataToWrite[9].equals(e)){
 			util.setKeyString("automationDriver");
-			dataToWrite[8] = AutomationDriverEncryptDecrypt.encrypt(dataToWrite[8], util.getKeyString());
+			dataToWrite[8] = AdEncryptDecrypt.encrypt(dataToWrite[8], util.getKeyString());
 		}
 		// get total number of rows
 		writer.writeNext(dataToWrite);

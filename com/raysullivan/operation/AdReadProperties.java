@@ -8,17 +8,17 @@ import java.io.InputStream;
 import java.util.Properties;
 
 
-public class AutomationDriverReadProperties {
+public class AdReadProperties {
 	private Properties p = new Properties();
-	private AutomationDriverUtil util = new AutomationDriverUtil();
+	private AdUtil util = new AdUtil();
 	public Properties getObjectRepository(String propertyFileName)
-			throws IOException, AutomationDriverException{
+			throws IOException, AdException{
 		InputStream stream;
 		try {
 			stream = new FileInputStream(new File(util.getTestPropertyPath()
 					+ propertyFileName));
 		} catch (FileNotFoundException e) {
-			throw new AutomationDriverException(
+			throw new AdException(
 					"Error:  Cannot find test property file " + propertyFileName
 							+ " at location " + util.getTestPropertyPath());
 		}
