@@ -45,6 +45,7 @@ public class AutomationDriverVariable {
 		try {
 			String vDs = "${", vDe = "}";
 			if (variableName.substring(0, 2).equals(vDs)) {
+				System.out.println("Variable Name " + variableName + " has the proper starting delimiter");
 				try {
 					int sx = variableName.indexOf(vDs) + 2;
 					int ex = variableName.indexOf(vDe);
@@ -58,9 +59,8 @@ public class AutomationDriverVariable {
 							"Error:  Variable '" + variableName + "' does not have a valid ending delimiter }");
 				}
 			} else {
-				return variableName;
-				//throw new AutomationDriverException(
-				//		"Error:  Variable '" + variableName + "' does not have a valid starting delimiter ${");
+				throw new AutomationDriverException(
+						"Error:  Variable '" + variableName + "' does not have a valid starting delimiter ${");
 			}
 		} catch (NullPointerException npe) {
 			throw new AutomationDriverException("Error: Variable name cannot be null");
