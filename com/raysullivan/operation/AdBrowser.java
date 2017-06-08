@@ -28,10 +28,10 @@ public class AdBrowser {
 	private static final int millisec = 1000;
 	private long starttime, endtime;
 
-	public AdBrowser(WebDriver driver, WebDriverWait waitVar) {
-		this.driver = driver;
-		this.waitVar = waitVar;
-	}
+	//public AdBrowser(WebDriver driver, WebDriverWait waitVar) {
+	//	this.driver = driver;
+	//	this.waitVar = waitVar;
+	//}
 
 	public String[] perform(Properties p, String propertyName, String cell[], AdVariable var,
 			AdUtil tool) throws Exception {
@@ -65,14 +65,14 @@ public class AdBrowser {
 			returnMessage[1] = kw.clickNoAssert(p, objectName, propertyName);
 			break;
 		case "CLICKALERT":
-			returnMessage[1] = kw.clickAlert();
+			returnMessage[1] = kw.clickAlert(driver);
 			break;
 		case "PAUSE":
 			// sleep for the determined number of milliseconds
 			returnMessage[1] = kw.pause(value);
 			break;
-		case "REFRESH":
-			returnMessage[1] = kw.refresh();
+		case "RELOAD":
+			returnMessage[1] = kw.reload(driver);
 			break;
 		case "SUBMIT":
 			// Perform submit
@@ -99,7 +99,7 @@ public class AdBrowser {
 			break;
 		case "GOTOURL":
 			// Get url of application
-			returnMessage[1] = kw.gotoUrl(p, objectName, propertyName);
+			returnMessage[1] = kw.gotoUrl(p, objectName, propertyName, driver, value);
 			break;
 		case "GOTO":
 			returnMessage[1] = kw.gotoAddress(p, objectName, propertyName, value, variable, operation, var);
@@ -137,28 +137,27 @@ public class AdBrowser {
 			break;
 		case "WAITVISIBLE":
 			returnMessage[1] = kw.pause("1");
-			returnMessage[1] = kw.waitVisible(p, objectName, propertyName);
+			returnMessage[1] = kw.waitVisible(p, objectName, propertyName, waitVar);
 			break;
 		case "WAITINVISIBLE":
-			returnMessage[1] = kw.waitInvisible(p, objectName, propertyName);
+			returnMessage[1] = kw.waitInvisible(p, objectName, propertyName, waitVar);
 			break;
 		case "CLICKANDHOLD":
-			returnMessage[1] = kw.clickAndHold(p, objectName, propertyName, value);
+			returnMessage[1] = kw.clickAndHold(p, objectName, propertyName, value, driver);
 			break;
 		case "HOVER":
-			// rs hover action not supported by Selenium Webdriver 3.0.1 - see
-			// mozilla bug
+			// rs hover action not supported by Selenium Webdriver 3.0.1 - see mozilla bug
 			// rs https://bugzilla.mozilla.org/show_bug.cgi?id=1292178
-			returnMessage[1] = kw.hover(p, objectName, propertyName);
+			returnMessage[1] = kw.hover(p, objectName, propertyName, driver);
 			break;
 		case "SWITCHFRAME":
-			returnMessage[1] = kw.switchFrame(p, objectName, propertyName);
+			returnMessage[1] = kw.switchFrame(p, objectName, propertyName, driver);
 			break;
 		case "LISTWINDOWS":
-			returnMessage[1] = kw.listWindows();
+			returnMessage[1] = kw.listWindows(driver);
 			break;
 		case "LISTFRAMES":
-			returnMessage[1] = kw.listFrames();
+			returnMessage[1] = kw.listFrames(driver);
 			break;
 		case "SCROLLTO":
 			returnMessage[1] = kw.scrollTo(p, objectName, propertyName);

@@ -80,3 +80,4 @@ test-output/Default suite/testng-failed.xml
 test-output/Default suite/Default test.xml
 test-output/Automation Driver Test Suite/testng-failed.xml
 test-output/Automation Driver Test Suite/Driver Test.xml
+resource/~$AutomationDriverUsage.xlsx
