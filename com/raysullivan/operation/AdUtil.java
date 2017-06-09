@@ -19,50 +19,6 @@ public class AdUtil {
 	private static final String SPREADSHEET = ".xlsx";
 	private static final String PROPERTYDELIMITER = "|";
 
-	public String valueCellFormat(final String[] cell) throws Exception {
-		/*
-		 * If a value is TEXT or if the action is PAUSE/CLICKANDHOLD, strip of
-		 * trailing .0 from numeric values passed from the spreadsheet
-		 * 
-		 * Otherwise if it is Numeric, make sure the number has two decimal
-		 * places
-		 */
-		String value = cell[3];
-		final String valueType = cell[4];
-		final String keyword = cell[1];
-		final String decimalConstant = ".0";
-		setKeyString("automationDriver");
-		boolean error = false;
-		try {
-			decimalPlaces = value.substring(value.indexOf("."));
-		} catch (StringIndexOutOfBoundsException s) {
-			decimalPlaces = ".0";
-			error = true;
-		} catch (NullPointerException npe) {
-			throw new AdException("Keyword or value cannot be null");
-		}
-		try{
-		if (valueType.equalsIgnoreCase("TEXT") || keyword.equalsIgnoreCase("PAUSE")
-				|| keyword.equalsIgnoreCase("CLICKANDHOLD") || keyword.equalsIgnoreCase("SELECTBYINDEX")
-				|| keyword.equalsIgnoreCase("DESELECTBYINDEX")) {
-			value = value.replace(decimalPlaces, "");
-		} else if (valueType.equalsIgnoreCase("DECIMAL") && decimalPlaces.equals(decimalConstant)) {
-			if (error) {
-				value = value + decimalPlaces;
-			}
-			value = value.replace(decimalPlaces, ".00");
-		} else if (valueType.equalsIgnoreCase("DECIMAL") && decimalPlaces.length() == 2) {
-			value = value + "0";
-		}
-		if (valueType.equalsIgnoreCase("ENCRYPT")) {
-			value = AdEncryptDecrypt.decrypt(value, getKeyString());
-		}
-		return value;
-		} catch (NullPointerException npe) {
-			throw new AdException("Keyword or value cannot be null");
-		}
-	}
-
 	public void setKeyString(final String keyString) {
 		this.keyString = keyString;
 	}
@@ -186,27 +142,26 @@ public class AdUtil {
 
 	public void setWebProfile(String wEB_PROFILE) {
 		this.profile = wEB_PROFILE;
-		
+
 	}
 
 	public void setSheetIterations(int sHEET_ITERATIONS) {
-		this.iterations = sHEET_ITERATIONS;		
+		this.iterations = sHEET_ITERATIONS;
 	}
 
 	public void setIsCapCsv(boolean cAPTURE_CSV) {
 		this.csv = cAPTURE_CSV;
-		
+
 	}
 
 	public void setIsCapVideo(boolean cAPTURE_VIDEO) {
 		this.video = cAPTURE_VIDEO;
-		
+
 	}
 
 	public String getTestReportPath() {
 		return getResourcePath() + TESTREPORTPATH;
 	}
-
 
 	public String getResourcePath() {
 		return RESOURCEPATH;
@@ -226,5 +181,58 @@ public class AdUtil {
 
 	public String getPropertyDelimiter() {
 		return PROPERTYDELIMITER;
+	}
+
+	public String validateValType(String function, String value, String valueType) throws Exception {
+		setKeyString("automationDriver");
+		boolean error = false;
+		error = setDecimalPlaces(value, error);
+		try {
+			switch (setValTypText(function, valueType).toUpperCase()) {
+			case "DECIMAL":
+				return setDecimalValue(value, error);
+			case "TEXT":
+				return value.replace(decimalPlaces, "");
+			case "ENCRYPT":
+				return AdEncryptDecrypt.decrypt(value, getKeyString());
+			default:
+				return value;
+			}
+		} catch (NullPointerException npe) {
+			return value;
+		}
+
+	}
+
+	private String setDecimalValue(String value, boolean error) {
+		if (error) {
+			return value + ".00";
+		}
+		if (decimalPlaces.equals(".0")) {
+			return value + "0";
+		}
+		return value;
+	}
+
+	private boolean setDecimalPlaces(String value, boolean error) {
+		try {
+			decimalPlaces = value.substring(value.indexOf("."));
+		} catch (StringIndexOutOfBoundsException | NullPointerException e) {
+			decimalPlaces = ".0";
+			error = true;
+		}
+		return error;
+	}
+
+	private String setValTypText(String function, String valueType) {
+		try {
+
+			if (function.equalsIgnoreCase("PAUSE") || function.equalsIgnoreCase("CLICKANDHOLD")
+					|| function.equalsIgnoreCase("SELECTBYINDEX") || function.equalsIgnoreCase("DESELECTBYINDEX")) {
+				valueType = "TEXT";
+			}
+		} catch (NullPointerException npe) {
+		}
+		return valueType;
 	}
 }

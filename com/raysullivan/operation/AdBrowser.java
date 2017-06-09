@@ -79,8 +79,7 @@ public class AdBrowser {
 			returnMessage[1] = kw.submit(p, objectName, propertyName);
 			break;
 		case "SETTEXT":
-			// If the get variable and set variable are the same, error
-			returnMessage[1] = kw.setText(p, objectName, propertyName, value, variable, operation, var);
+			returnMessage[1] = kw.setText(p, objectName, propertyName, value, variable, valueType, var);
 			break;
 		case "SELECT":
 			returnMessage[1] = kw.select(p, objectName, propertyName, value, variable, operation, var);
@@ -89,10 +88,10 @@ public class AdBrowser {
 			returnMessage[1] = kw.deselect(p, objectName, propertyName, value, variable, operation, var);
 			break;
 		case "SELECTBYINDEX":
-			returnMessage[1] = kw.selectByIndex(p, objectName, propertyName, value, variable, operation, var);
+			returnMessage[1] = kw.selectByIndex(p, objectName, propertyName, value, variable, valueType, operation, var);
 			break;
 		case "DESELECTBYINDEX":
-			returnMessage[1] = kw.deselectByIndex(p, objectName, propertyName, value, variable, operation, var);
+			returnMessage[1] = kw.deselectByIndex(p, objectName, propertyName, value, variable, valueType, operation, var);
 			break;
 		case "CLEAR":
 			returnMessage[1] = kw.clear(p, objectName, propertyName);
@@ -160,17 +159,13 @@ public class AdBrowser {
 			returnMessage[1] = kw.listFrames(driver);
 			break;
 		case "SCROLLTO":
-			returnMessage[1] = kw.scrollTo(p, objectName, propertyName);
+			returnMessage[1] = kw.scrollTo(p, objectName, propertyName, driver);
 			break;
 		case "NAVFORWARD":
-			// driver.navigate().forward();
-			// returnMessage[1] = util.getSuccessString();
-			returnMessage[1] = kw.navForward(p, objectName, propertyName);
+			returnMessage[1] = kw.navForward(driver);
 			break;
 		case "NAVBACK":
-			// driver.navigate().back();
-			// returnMessage[1] = util.getSuccessString();
-			returnMessage[1] = kw.navBackward(p, objectName, propertyName);
+			returnMessage[1] = kw.navBackward(driver);
 			break;
 		case "SCREENSHOT":
 			String baseScreenshot = util.getTestReportPath();

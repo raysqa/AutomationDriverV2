@@ -20,6 +20,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.MoveTargetOutOfBoundsException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdKeywords {
@@ -298,30 +299,24 @@ public class AdKeywords {
 			}
 			return util.getSuccessString();
 		} catch (NoSuchFrameException nsee) {
-			final List<WebElement> iframes = driver.findElements(By
-					.tagName("iframe"));
+			final List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
 			if (iframes.isEmpty()) {
-				return "iFrame "
-						+ p.getProperty(objectName)
-						+ " could not be found due to NoSuchFrameException";
+				return "iFrame " + p.getProperty(objectName) + " could not be found due to NoSuchFrameException";
 			}
 			for (WebElement iframe : iframes) {
 				try {
 					driver.switchTo().frame(iframe);
 					return util.getSuccessString();
 				} catch (NoSuchFrameException nsee1) {
-					return "iFrame "
-							+ p.getProperty(objectName)
-							+ " could not be found due to NoSuchFrameException";
+					return "iFrame " + p.getProperty(objectName) + " could not be found due to NoSuchFrameException";
 				}
 			}
 		} catch (StaleElementReferenceException sere) {
-			return "iFrame "
-					+ objectName
-					+ " could not be found due to StaleElementReferenceException";
+			return "iFrame " + objectName + " could not be found due to StaleElementReferenceException";
 		}
 		return util.getSuccessString();
 	}
+
 	public String listWindows(WebDriver driver) throws Exception {
 		if (setOfOldHandles != null) {
 			setOfOldHandles.clear();
@@ -329,12 +324,10 @@ public class AdKeywords {
 		setOfOldHandles = driver.getWindowHandles(); // here we save
 														// id's of
 														// windows
-		System.out.print("Number of windows open: "
-				+ setOfOldHandles.size() + " value: ");
+		System.out.print("Number of windows open: " + setOfOldHandles.size() + " value: ");
 		if (!setOfOldHandles.isEmpty()) {
-			String newWindowHandle = (String) setOfOldHandles
-					.iterator().next(); // here IF we have new window it
-										// will shift on it
+			// here if we have a new window it will shift to it
+			String newWindowHandle = (String) setOfOldHandles.iterator().next();
 			System.out.println(newWindowHandle);
 		}
 		System.out.println();
@@ -342,59 +335,137 @@ public class AdKeywords {
 	}
 
 	public String listFrames(WebDriver driver) throws Exception {
-		final List<WebElement> iframes = driver.findElements(By
-				.tagName("iframe"));
-		System.out.println("Number of frames on this page: "
-				+ iframes.size());
+		final List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
+		System.out.println("Number of frames on this page: " + iframes.size());
 		for (WebElement iframe : iframes) {
 			System.out.println("Page has iFrame " + iframe);
 		}
 		return util.getSuccessString();
 	}
 
-	public String scrollTo(Properties p, String objectName, String propertyName) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public String scrollTo(Properties p, String objectName, String propertyName, WebDriver driver) throws Exception {
+		try {
+			WebElement scroll = browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
+			Thread.sleep(500);
+			return util.getSuccessString();
+		} catch (TimeoutException te) {
+			return "Object " + objectName + " failed to become invisible";
+		} catch (NoSuchElementException nsee) {
+			return "Object " + objectName + " could not be found due to NoSuchElementException";
+		} catch (StaleElementReferenceException sere) {
+			return "Object " + objectName + " could not be found due to StaleElementReferenceException";
+		}
 	}
 
-	public String navForward(Properties p, String objectName, String propertyName) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public String navForward(WebDriver driver) throws Exception {
+		driver.navigate().forward();
+		return util.getSuccessString();
 	}
 
-	public String navBackward(Properties p, String objectName, String propertyName) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public String navBackward(WebDriver driver) throws Exception {
+		driver.navigate().back();
+		return util.getSuccessString();
 	}
 
 	public String setText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var2) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+			String valueType, AdVariable var) throws Exception {
+		value = util.validateValType("SETTEXT", value, valueType);
+		if (variable != null && variable != "") {
+			var.setVariableValue(value, variable);
+		}
+		try {
+			browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)).sendKeys(value);
+			return util.getSuccessString();
+		} catch (NoSuchElementException nsee) {
+			return "Object " + objectName + " could not be found due to NoSuchElementException";
+		} catch (StaleElementReferenceException sere) {
+			return "Object " + objectName + " could not be found due to StaleElementReferenceException";
+		} catch (ElementNotVisibleException enve) {
+			return "Object " + objectName + " could not be found due to ElementNotVisibleException";
+		}
 	}
 
 	public String select(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var2) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+			String valueType, AdVariable var) throws Exception {
+		value = util.validateValType("SELECT", value, valueType);
+		if (variable != null && variable != "") {
+			var.setVariableValue(value, variable);
+		}
+		try {
+			Select drpObject = new Select(
+					browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)));
+			drpObject.selectByVisibleText(value);
+			return util.getSuccessString();
+		} catch (NoSuchElementException nsee) {
+			return "Object " + objectName + " could not be found due to NoSuchElementException";
+		} catch (StaleElementReferenceException sere) {
+			return "Object " + objectName + " could not be found due to StaleElementReferenceException";
+		} catch (ElementNotVisibleException enve) {
+			return "Object " + objectName + " could not be found due to ElementNotVisibleException";
+		}
 	}
 
 	public String deselect(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var2) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+			String valueType, AdVariable var) throws Exception {
+		value = util.validateValType("SELECT", value, valueType);
+		if (variable != null && variable != "") {
+			var.setVariableValue(value, variable);
+		}
+		try {
+			Select drpObject = new Select(
+					browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)));
+			drpObject.deselectByVisibleText(value);
+			return util.getSuccessString();
+		} catch (NoSuchElementException nsee) {
+			return "Object " + objectName + " could not be found due to NoSuchElementException";
+		} catch (StaleElementReferenceException sere) {
+			return "Object " + objectName + " could not be found due to StaleElementReferenceException";
+		} catch (ElementNotVisibleException enve) {
+			return "Object " + objectName + " could not be found due to ElementNotVisibleException";
+		}
 	}
 
 	public String selectByIndex(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var2) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+			String valueType, String operation, AdVariable var) throws Exception {
+		value = util.validateValType("SELECTBYINDEX", value, valueType);
+		if (variable != null && variable != "") {
+			var.setVariableValue(value, variable);
+		}
+		try {
+			Select drpObject = new Select(
+					browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)));
+			int selectIdx = Integer.parseInt(value);
+			drpObject.selectByIndex(selectIdx);
+			return util.getSuccessString();
+		} catch (NoSuchElementException nsee) {
+			return "Object " + objectName + " could not be found due to NoSuchElementException";
+		} catch (StaleElementReferenceException sere) {
+			return "Object " + objectName + " could not be found due to StaleElementReferenceException";
+		} catch (ElementNotVisibleException enve) {
+			return "Object " + objectName + " could not be found due to ElementNotVisibleException";
+		}
 	}
 
 	public String deselectByIndex(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var2) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+			String valueType, String operation, AdVariable var) throws Exception {
+		value = util.validateValType("DESELECTBYINDEX", value, valueType);
+		if (variable != null && variable != "") {
+			var.setVariableValue(value, variable);
+		}
+		try {
+			Select drpObject = new Select(
+					browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)));
+			int selectIdx = Integer.parseInt(value);
+			drpObject.deselectByIndex(selectIdx);
+			return util.getSuccessString();
+		} catch (NoSuchElementException nsee) {
+			return "Object " + objectName + " could not be found due to NoSuchElementException";
+		} catch (StaleElementReferenceException sere) {
+			return "Object " + objectName + " could not be found due to StaleElementReferenceException";
+		} catch (ElementNotVisibleException enve) {
+			return "Object " + objectName + " could not be found due to ElementNotVisibleException";
+		}
 	}
 
 	public String gotoAddress(Properties p, String objectName, String propertyName, String value, String variable,

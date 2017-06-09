@@ -2,7 +2,6 @@ package raysullivan.unitTest;
 
 import org.testng.annotations.*;
 
-import raysullivan.operation.AdException;
 import raysullivan.operation.AdUtil;
 
 import static org.fest.assertions.api.Assertions.*;
@@ -26,32 +25,13 @@ public class TestAdUtil {
 			RESULT_SPREADSHEET = "Results.xlsx", BROWSER = "Firefox", WEB_PROFILE = "Test_Profile",
 			PROPERTY_NAME = "test.properties", KEYSTRING = "automationDriver";
 
-	@Test(dataProvider = "valueCellFormat", description = "valueCellFormatTest", enabled = true)
-	/**
-	 * valueCellFormatTEst
-	 * 
-	 * @param cell1
-	 * @param cell4
-	 * @param cell5
-	 * @param expected
-	 */
-	public final void valueCellFormatTest(final String cell1, String cell3, final String cell4, String expected)
+
+	@Test(dataProvider = "valueCellFormat", description = "validateValTypeTest", enabled = true)
+	public final void validateValTypeTest(final String function, String value, final String valueType, String expected)
 			throws Exception {
-		String[] cell = new String[6];
-		cell[1] = cell1;
-		cell[3] = cell3;
-		cell[4] = cell4;
-		assertThat(util.valueCellFormat(cell)).isEqualTo(expected);
+		assertThat(util.validateValType(function, value, valueType)).isEqualTo(expected);
 	}
-	@Test(dataProvider = "valueCellFormatException", description = "valueCellFormatExceptionTest", expectedExceptions = AdException.class, enabled = true)
-	public final void valueCellFormatExceptionTest(final String cell1, String cell3, final String cell4, String expected)
-			throws Exception {
-		String[] cell = new String[6];
-		cell[1] = cell1;
-		cell[3] = cell3;
-		cell[4] = cell4;
-		util.valueCellFormat(cell);
-	}
+
 	/**
 	 * getElapsedTime
 	 * 
@@ -208,7 +188,7 @@ public class TestAdUtil {
 	public final Object[][] valueCellFormat() {
 		return new String[][] { new String[] { "", "123.0", "text", "123" },
 				new String[] { "pause", "123.0", "", "123" }, 
-				new String[] { "", "123.00", "TEXT", "123" },
+				new String[] { "", "123.00", "text", "123" },
 				new String[] { "PAUSE", "123.00", "", "123" }, 
 				new String[] { "", "123", "TEXT", "123" },
 				new String[] { "", "12345678.0", "TEXT", "12345678" }, 
@@ -220,13 +200,14 @@ public class TestAdUtil {
 				new String[] { "", "url", "", "url" },
 				new String[] { "", "4,140.00 USD", "", "4,140.00 USD" }, 
 				new String[] { "", "123.0", "", "123.0" },
-				new String[] { "settext", "ieKkIwygTyBf63mi62KD7w==", "encrypt", "Welcome1" } };
+				new String[] { "settext", "ieKkIwygTyBf63mi62KD7w==", "encrypt", "Welcome1" }, 
+				new String[] { "", "", "", ""},
+				new String[] { null, null, null, null},
+				new String[] { null, "", null, ""},
+				new String[] { "", "123", null, "123"},
+				new String[] { "", "123.99999", null, "123.99999"},};
 	}
-	@DataProvider
-	public final Object[][] valueCellFormatException() {
-		return new String[][] { new String[] { null, "123.0", "", "123.0" },
-				new String[] { "GETTEXT", null, "", "123.0" } };
-	}
+
 	/**
 	 * etValues
 	 * 
