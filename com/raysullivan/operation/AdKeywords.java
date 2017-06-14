@@ -263,9 +263,9 @@ public class AdKeywords {
 		// rs hover action not supported by Selenium Webdriver 3.2.0 - see
 		// mozilla bug
 		// rs https://bugzilla.mozilla.org/show_bug.cgi?id=1292178
-		Actions a = new Actions(driver);
+		Actions h = new Actions(driver);
 		try {
-			a.moveToElement(browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName))).build()
+			h.moveToElement(browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName))).build()
 					.perform();
 			return util.getSuccessString();
 		} catch (NoSuchElementException nsee) {
@@ -469,19 +469,27 @@ public class AdKeywords {
 	}
 
 	public String gotoAddress(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var2) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+			String valueType, String operation, AdVariable var, WebDriver driver) throws Exception {
+		value = util.validateValType("GOTO", value, valueType);
+		if (variable != null && variable != "") {
+			var.setVariableValue(value, variable);
+		}
+		driver.get(value);
+		return util.getSuccessString();
 	}
 
-	public String assertUrl(String objectName, String value, String variable, String operation, AdVariable var2)
+	public String assertUrl(String objectName, String value, String variable, String operation, String valueType, AdVariable var)
 			throws Exception {
-		// TODO Auto-generated method stub
+		value = util.validateValType("ASSERTURL", value, valueType);
+		if (variable != null && variable != "") {
+			var.setVariableValue(value, variable);
+		}
+		value = var.getVariableValue(variable);
 		return null;
 	}
 
 	public String assertText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var2) throws Exception {
+			String operation, AdVariable var) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -492,19 +500,19 @@ public class AdKeywords {
 	}
 
 	public String containsText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var2) throws Exception {
+			String operation, AdVariable var) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String storeText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var2) throws Exception {
+			String operation, AdVariable var) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public String assertAttribute(Properties p, String objectName, String propertyName, String value, String variable,
-			String valueType, String operation, AdVariable var2) throws Exception {
+			String valueType, String operation, AdVariable var) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

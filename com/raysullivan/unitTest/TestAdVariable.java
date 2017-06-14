@@ -43,20 +43,19 @@ public class TestAdVariable {
 		assertThat(var.getVariableValue(variableName)).isNotEqualTo(var.getVariableValue(newVariableName));
 	}
 
-	@Test(description = "setinvalidVariableValue", dataProvider = "setVariableInvalid", expectedExceptions = AdException.class, enabled = true)
-	public void setinvalidVariableValue(String variableName, String variableValue) throws AdException {
-		var.setVariableValue(variableName, variableValue);
-	}
-
 	@Test(description = "validateAssertVariables", dataProvider = "assertVariables", expectedExceptions = AdException.class, enabled = true)
 	public void validateAssertVariables(String variable1, String variable2) throws AdException {
 		var.checkAssertVariables(variable1, variable2);
 	}
 
+	@Test(description = "validateisAVariable", dataProvider = "isAVariable", enabled = true)
+	public void isAVariableTest(String variable, boolean expected) throws AdException {
+		assertThat(var.isAVariable(variable)).isEqualTo(expected);
+	}
 	@DataProvider
 	public final Object[][] setVariableOverwrite() {
 		return new String[][] { new String[] { "${user.name}", "Heidi Mc Natt", "Curious George" },
-				new String[] { "${user.name}", "Heidi Mc Natt", "Heidi McNatt" }, 
+				new String[] { "${user.name}", "Heidi Mc Natt", "Heidi McNatt" },
 				new String[] { "${user.name}", "Heidi Mc Natt", "" }, };
 	}
 
@@ -67,32 +66,30 @@ public class TestAdVariable {
 	}
 
 	@DataProvider
+	public final Object[][] isAVariable() {
+		return new Object[][] { new Object[] { "${ValidVariableName}", true },
+				new Object[] { "${Valid.Variable}", true }, new Object[] { "${a}", true },
+				new Object[] { "${Valid_Really_Long_Variable}", true },
+				new Object[] { "${Truncated_Long_Vari}able", true },
+				new Object[] { "Not a Variable", false },
+				new Object[] { "{NotaVariable}", false }, new Object[] { "{NotaVariable", false },
+				new Object[] { "NotaVariable}", false }, new Object[] { "n", false },
+				new Object[] { "nv", false }, new Object[] { "nva", false }, new Object[] { "", false },
+				new Object[] { null, false }, };
+	}
+
+	@DataProvider
 	public final Object[][] validVariableNames() {
 		return new String[][] { new String[] { "${ValidVariableName}", "${ValidVariableName}" },
 				new String[] { "${Valid.Variable}", "${Valid.Variable}" }, new String[] { "${a}", "${a}" },
 				new String[] { "${Valid_Really_Long_Variable}", "${Valid_Really_Long_Variable}" },
-				new String[] { "${Truncated_Long_Vari}able", "${Truncated_Long_Vari}" }, };
+				new String[] { "${Truncated_Long_Vari}able", "${Truncated_Long_Vari}" },};
 	}
-
+	
 	@DataProvider
 	public final Object[][] invalidVariableNames() {
 		return new String[][] { new String[] { "${Invalid VariableName}", "${Invalid VariableName}" },
-				new String[] { "Not a Variable", "Not a Variable" },
-				new String[] { "{NotaVariable}", "{NotaVariable}" }, new String[] { "{NotaVariable", "{NotaVariable" },
-				new String[] { "NotaVariable}", "NotaVariable}" }, new String[] { "a", "a", },
-				new String[] { "ab", "ab" }, new String[] { "abc", "abc" }, new String[] { "", "", },
-				new String[] { "${}", "${}" }, new String[] { "${InalidVariableName", "${InalidVariableName" },
-				new String[] { null, "Heidi Mc Natt" }, new String[] { null, null }, };
-	}
-
-	@DataProvider
-	public final Object[][] setVariableInvalid() {
-		return new String[][] { new String[] { null, null }, 
-				new String[] { null, null },
-				new String[] { null, "Invalid" }, 
-				new String[] { "", "Invalid" }, 
-				new String[] { "Invalid", null }, 
-				new String[] { null, "" },};
+				new String[] { "${}", "${}" }, new String[] { "${InalidVariableName", "${InalidVariableName" }, };
 	}
 
 	@DataProvider

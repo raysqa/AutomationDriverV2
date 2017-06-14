@@ -42,9 +42,7 @@ public class AdVariable {
 
 	public String validateVariableName(String variableName) throws AdException {
 		checkEmptyVariable(variableName);
-		try {
 			String vDs = "${", vDe = "}";
-			if (variableName.substring(0, 2).equals(vDs)) {
 				try {
 					int sx = variableName.indexOf(vDs) + 2;
 					int ex = variableName.indexOf(vDe);
@@ -55,17 +53,7 @@ public class AdVariable {
 					return variableName;
 				} catch (StringIndexOutOfBoundsException s) {
 					throw new AdException(
-							"Error:  Variable '" + variableName + "' does not have a valid ending delimiter }");
-				}
-			} else {
-				throw new AdException(
-						"Error:  Variable '" + variableName + "' does not have a valid starting delimiter ${");
-			}
-		} catch (NullPointerException npe) {
-			throw new AdException("Error: Variable name cannot be null");
-		} catch (StringIndexOutOfBoundsException e) {
-		}
-		throw new AdException("Error: Variable '" + variableName + "' is not a valid variable name");
+							"Error:  Variable '" + variableName + "' does not have a valid ending delimiter }"); }
 	}
 
 	private void checkEmptyVariable(String stringToCheck) throws AdException {
@@ -106,6 +94,19 @@ public class AdVariable {
 			throw new AdException("Error:  Cannot compare a variable to itself.");
 		}
 
+	}
+
+	public boolean isAVariable(String variableName) {
+		try {
+			String vDs = "${";
+			if (variableName.substring(0, 2).equals(vDs)) {
+				return true; 
+			} else {
+				return false;
+			}
+		} catch (StringIndexOutOfBoundsException |NullPointerException e) {
+		}
+		return false;
 	}
 
 }
