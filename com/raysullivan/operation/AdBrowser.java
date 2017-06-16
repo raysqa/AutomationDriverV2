@@ -104,7 +104,7 @@ public class AdBrowser {
 			returnMessage[1] = kw.gotoAddress(p, objectName, propertyName, value, variable, operation, valueType, var, driver);
 			break;
 		case "ASSERTURL":
-			returnMessage[1] = kw.assertUrl(objectName, value, variable, operation, valueType, var);
+			returnMessage[1] = kw.assertUrl(objectName, value, variable, operation, valueType, var, driver);
 			break;
 		case "ASSERTTEXT":
 			returnMessage[1] = kw.assertText(p, objectName, propertyName, value, variable, operation, var);

@@ -479,18 +479,28 @@ public class AdKeywords {
 	}
 
 	public String assertUrl(String objectName, String value, String variable, String operation, String valueType,
-			AdVariable var) throws Exception {
+			AdVariable var, WebDriver driver) throws Exception {
 		// clean up value type
 		value = util.validateValType("ASSERTURL", value, valueType);
 		// create variable if passed
-		if (isAVariable(variable)) {
-			setVariableValue(variable, value);
+		if (var.isAVariable(variable)) {
+			var.setVariableValue(variable, value);
 		}
 		// is the validation against a variable?
-		if (isAVariable(value)) {
-			value = getVariableValue(value);
+		if (var.isAVariable(value)) {
+			value = var.getVariableValue(value);
 		}
-		return null;
+		try {
+			if (driver.getCurrentUrl().equals(value)) {
+				return util.getSuccessString();
+			} else {
+				return util.getErrorString();
+			}
+		} catch (NoSuchElementException nsee) {
+			return "Object " + objectName + " could not be found due to NoSuchElementException";
+		} catch (StaleElementReferenceException sere) {
+			return "Object " + objectName + " could not be found due to StaleElementReferenceException";
+		}
 	}
 
 	public String assertText(Properties p, String objectName, String propertyName, String value, String variable,
