@@ -136,7 +136,7 @@ public class AdBrowser {
 			break;
 		case "WAITVISIBLE":
 			returnMessage[1] = kw.pause("1");
-			returnMessage[1] = kw.waitVisible(p, objectName, propertyName, waitVar);
+			returnMessage[1] = kw.waitVisible(p, objectName, propertyName, waitVar);			
 			break;
 		case "WAITINVISIBLE":
 			returnMessage[1] = kw.waitInvisible(p, objectName, propertyName, waitVar);
