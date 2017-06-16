@@ -478,13 +478,18 @@ public class AdKeywords {
 		return util.getSuccessString();
 	}
 
-	public String assertUrl(String objectName, String value, String variable, String operation, String valueType, AdVariable var)
-			throws Exception {
+	public String assertUrl(String objectName, String value, String variable, String operation, String valueType,
+			AdVariable var) throws Exception {
+		// clean up value type
 		value = util.validateValType("ASSERTURL", value, valueType);
-		if (variable != null && variable != "") {
-			var.setVariableValue(value, variable);
+		// create variable if passed
+		if (isAVariable(variable)) {
+			setVariableValue(variable, value);
 		}
-		value = var.getVariableValue(variable);
+		// is the validation against a variable?
+		if (isAVariable(value)) {
+			value = getVariableValue(value);
+		}
 		return null;
 	}
 
