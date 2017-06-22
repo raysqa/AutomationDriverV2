@@ -528,17 +528,19 @@ public class AdKeywords {
 	}
 	
 
-	private String variableHandler(String keyword, String value, String variable, String valueType, AdVariable var)
+	public String variableHandler(String keyword, String value, String variable, String valueType, AdVariable var)
 			throws Exception, AdException {
 		value = util.validateValType(keyword, value, valueType);
+		// is the validation against a variable?
+		if (var.isAVariable(value)) {
+			System.out.println("VariableHandler:  Variable " + value + " set to " + var.getVariableValue(value));
+			value = var.getVariableValue(value);
+		}
 		// create variable if passed
 		if (var.isAVariable(variable)) {
 			var.setVariableValue(variable, value);
 		}
 		// is the validation against a variable?
-		if (var.isAVariable(value)) {
-			value = var.getVariableValue(value);
-		}
 		return value;
 	}
 }

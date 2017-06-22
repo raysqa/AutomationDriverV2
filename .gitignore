@@ -90,3 +90,7 @@ test-output/junitreports/TEST-raysullivan.unitTest.TestAdEncryptDecrypt.xml
 test-output/junitreports/TEST-raysullivan.unitTest.TestAdBrowserProperties.xml
 test-output/junitreports/TEST-raysullivan.unitTest.TestAdUtil.xml
 test-output/junitreports/TEST-raysullivan.unitTest.TestAdVariable.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdVariable.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdUtil.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdBrowserProperties.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdEncryptDecrypt.xml

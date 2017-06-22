@@ -47,24 +47,41 @@ public class TestAdKeywords {
 		var.setVariableValue(variableName2, variableValue2);
 		assertThat(kw.assertNotContains(variableName1, variableName2, var)).isEqualTo(returnString);
 	}
-	
+
 	@Test(description = "TestPause", enabled = true)
-	public void TestPause () throws Exception{
+	public void TestPause() throws Exception {
 		assertThat(kw.pause("1")).isEqualTo(util.getSuccessString());
 	}
-	
-	@Test(description = "TestPauseException", dataProvider = "PauseException",expectedExceptions = AdException.class, enabled = true)
-	public void TestPauseException (String pause) throws Exception{
+
+	@Test(description = "TestPauseException", dataProvider = "PauseException", expectedExceptions = AdException.class, enabled = true)
+	public void TestPauseException(String pause) throws Exception {
 		assertThat(kw.pause(pause)).isEqualTo(util.getSuccessString());
+	}
+
+	@Test(description = "TestVariableHandler", dataProvider = "VariableHandler", enabled = true)
+	public void TestVariableHandler(String value, String variable, String valueType, String operation, String expected)
+			throws AdException, Exception {
+		if (var.isAVariable(value)) {
+			var.setVariableValue(value, expected);
+		}
+		assertThat(kw.variableHandler(operation.toUpperCase(), value, variable, valueType, var)).isEqualTo(expected);
+		if (var.isAVariable(variable)) {
+			assertThat(var.getVariableValue(variable)).isEqualTo(expected);
+		}
+	}
+
+	@DataProvider
+	public final Object[][] VariableHandler() {
+		return new String[][] { new String[] { "Merry Christmas", null, null, "OPERATION", "Merry Christmas" },
+				new String[] { "Merry Christmas", "${variable}", null, "OPERATION", "Merry Christmas" },
+				new String[] { "${variable2}", "${variable}", null, "OPERATION", "Merry Christmas" }, };
 	}
 
 	@DataProvider
 	public final Object[][] PauseException() {
-		return new String[][] { new String[] { "0" },
-				new String[] { "-1" }, 
-				new String[] { "abc" }, };
+		return new String[][] { new String[] { "0" }, new String[] { "-1" }, new String[] { "abc" }, };
 	}
-	
+
 	@DataProvider
 	public final Object[][] AssertVariablesValid() {
 		return new String[][] { new String[] { "${vname1}", "${vname2}", "ASSERTEQUALS", "${vname1}", "${vname2}" },
