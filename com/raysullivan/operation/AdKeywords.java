@@ -428,7 +428,7 @@ public class AdKeywords {
 
 	public String selectByIndex(Properties p, String objectName, String propertyName, String value, String variable,
 			String valueType, String operation, AdVariable var) throws Exception {
-		value = util.validateValType("SELECTBYINDEX", value, valueType);
+		value = util.validateValType(operation.toUpperCase(), value, valueType);
 		if (variable != null && variable != "") {
 			var.setVariableValue(value, variable);
 		}
@@ -449,7 +449,7 @@ public class AdKeywords {
 
 	public String deselectByIndex(Properties p, String objectName, String propertyName, String value, String variable,
 			String valueType, String operation, AdVariable var) throws Exception {
-		value = util.validateValType("DESELECTBYINDEX", value, valueType);
+		value = util.validateValType(operation.toUpperCase(), value, valueType);
 		if (variable != null && variable != "") {
 			var.setVariableValue(value, variable);
 		}
@@ -470,7 +470,7 @@ public class AdKeywords {
 
 	public String gotoAddress(Properties p, String objectName, String propertyName, String value, String variable,
 			String valueType, String operation, AdVariable var, WebDriver driver) throws Exception {
-		value = util.validateValType("GOTO", value, valueType);
+		value = util.validateValType(operation.toUpperCase(), value, valueType);
 		if (variable != null && variable != "") {
 			var.setVariableValue(value, variable);
 		}
@@ -478,18 +478,10 @@ public class AdKeywords {
 		return util.getSuccessString();
 	}
 
-	public String assertUrl(String objectName, String value, String variable, String operation, String valueType,
-			AdVariable var, WebDriver driver) throws Exception {
+	public String assertUrl(String objectName, String value, String variable, String valueType, String operation, AdVariable var,
+			WebDriver driver) throws Exception {
 		// clean up value type
-		value = util.validateValType("ASSERTURL", value, valueType);
-		// create variable if passed
-		if (var.isAVariable(variable)) {
-			var.setVariableValue(variable, value);
-		}
-		// is the validation against a variable?
-		if (var.isAVariable(value)) {
-			value = var.getVariableValue(value);
-		}
+		value = variableHandler(operation.toUpperCase(), value, variable, valueType, var);
 		try {
 			if (driver.getCurrentUrl().equals(value)) {
 				return util.getSuccessString();
@@ -503,20 +495,17 @@ public class AdKeywords {
 		}
 	}
 
-	public String assertText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String createVar(String value, String variable, String operation, AdVariable var2) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public String createVar(String value, String variable, String valueType, String operation, AdVariable var) throws Exception {
+		if(!var.isAVariable(variable)) {
+			return "Keyword" + operation + " invalid: variable not declared.";
+		} else {
+		value = variableHandler(operation.toUpperCase(), value, variable, valueType, var);
+		return util.getSuccessString(); }
 	}
 
 	public String containsText(Properties p, String objectName, String propertyName, String value, String variable,
-			String operation, AdVariable var) throws Exception {
-		// TODO Auto-generated method stub
+			String valueType, String operation, AdVariable var) throws Exception {
+		value = variableHandler(operation.toUpperCase(), value, variable, valueType, var);
 		return null;
 	}
 
@@ -532,4 +521,24 @@ public class AdKeywords {
 		return null;
 	}
 
+	public String assertText(Properties p, String objectName, String propertyName, String value, String variable,
+			String valueType, String variable2, AdVariable var) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	private String variableHandler(String keyword, String value, String variable, String valueType, AdVariable var)
+			throws Exception, AdException {
+		value = util.validateValType(keyword, value, valueType);
+		// create variable if passed
+		if (var.isAVariable(variable)) {
+			var.setVariableValue(variable, value);
+		}
+		// is the validation against a variable?
+		if (var.isAVariable(value)) {
+			value = var.getVariableValue(value);
+		}
+		return value;
+	}
 }

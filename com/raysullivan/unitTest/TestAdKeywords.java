@@ -2,8 +2,10 @@ package raysullivan.unitTest;
 
 import org.testng.annotations.Test;
 
+import raysullivan.operation.AdException;
 import raysullivan.operation.AdKeywords;
 import raysullivan.operation.AdVariable;
+import raysullivan.operation.AdUtil;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -12,6 +14,7 @@ import org.testng.annotations.DataProvider;
 public class TestAdKeywords {
 	AdVariable var = new AdVariable();
 	AdKeywords kw = new AdKeywords();
+	AdUtil util = new AdUtil();
 
 	@Test(description = "TestAssertEquals", dataProvider = "AssertEquals", enabled = true)
 	public void TestAssertEquals(String variableName1, String variableValue1, String variableName2,
@@ -44,7 +47,24 @@ public class TestAdKeywords {
 		var.setVariableValue(variableName2, variableValue2);
 		assertThat(kw.assertNotContains(variableName1, variableName2, var)).isEqualTo(returnString);
 	}
+	
+	@Test(description = "TestPause", enabled = true)
+	public void TestPause () throws Exception{
+		assertThat(kw.pause("1")).isEqualTo(util.getSuccessString());
+	}
+	
+	@Test(description = "TestPauseException", dataProvider = "PauseException",expectedExceptions = AdException.class, enabled = true)
+	public void TestPauseException (String pause) throws Exception{
+		assertThat(kw.pause(pause)).isEqualTo(util.getSuccessString());
+	}
 
+	@DataProvider
+	public final Object[][] PauseException() {
+		return new String[][] { new String[] { "0" },
+				new String[] { "-1" }, 
+				new String[] { "abc" }, };
+	}
+	
 	@DataProvider
 	public final Object[][] AssertVariablesValid() {
 		return new String[][] { new String[] { "${vname1}", "${vname2}", "ASSERTEQUALS", "${vname1}", "${vname2}" },

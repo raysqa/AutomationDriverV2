@@ -101,13 +101,13 @@ public class AdBrowser {
 			returnMessage[1] = kw.gotoUrl(p, objectName, propertyName, driver, value);
 			break;
 		case "GOTO":
-			returnMessage[1] = kw.gotoAddress(p, objectName, propertyName, value, variable, operation, valueType, var, driver);
+			returnMessage[1] = kw.gotoAddress(p, objectName, propertyName, value, variable, valueType, operation, var, driver);
 			break;
 		case "ASSERTURL":
-			returnMessage[1] = kw.assertUrl(objectName, value, variable, operation, valueType, var, driver);
+			returnMessage[1] = kw.assertUrl(objectName, value, variable, valueType, operation, var, driver);
 			break;
 		case "ASSERTTEXT":
-			returnMessage[1] = kw.assertText(p, objectName, propertyName, value, variable, operation, var);
+			returnMessage[1] = kw.assertText(p, objectName, propertyName, value, variable, valueType, variable2, var);
 			break;
 		case "ASSERTEQUAL":
 			returnMessage[1] = kw.assertEqual(variable, variable2, var);
@@ -122,10 +122,10 @@ public class AdBrowser {
 			returnMessage[1] = kw.assertNotContains(variable, variable2, var);
 			break;
 		case "CREATEVARIABLE":
-			returnMessage[1] = kw.createVar(value, variable, operation, var);
+			returnMessage[1] = kw.createVar(value, variable, valueType, operation, var);
 			break;
 		case "CONTAINSTEXT":
-			returnMessage[1] = kw.containsText(p, objectName, propertyName, value, variable, operation, var);
+			returnMessage[1] = kw.containsText(p, objectName, propertyName, value, variable, valueType, operation, var);
 			break;
 		case "STORETEXT":
 			returnMessage[1] = kw.storeText(p, objectName, propertyName, value, variable, operation, var);
@@ -223,7 +223,7 @@ public class AdBrowser {
 				driver = new SafariDriver();
 				break;
 			case "firefox":
-				System.setProperty("webdriver.gecko.driver", util.getDriverPath() + "geckodriver.exe");
+				System.setProperty("webdriver.gecko.driver", util.getDriverPath() + "geckodriver_15_0.exe");
 				if (profile == null) {
 					driver = new FirefoxDriver();
 				} else {

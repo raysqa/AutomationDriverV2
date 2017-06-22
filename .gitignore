@@ -81,3 +81,12 @@ test-output/Default suite/Default test.xml
 test-output/Automation Driver Test Suite/testng-failed.xml
 test-output/Automation Driver Test Suite/Driver Test.xml
 resource/~$AutomationDriverUsage.xlsx
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdTakeScreenShot.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdOpenExcelSpreadsheet.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdOpenExcelSpreadsheet.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdKeywords.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdGetPropertyAttribute.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdEncryptDecrypt.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdBrowserProperties.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdUtil.xml
+test-output/junitreports/TEST-raysullivan.unitTest.TestAdVariable.xml
