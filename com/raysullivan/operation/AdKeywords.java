@@ -478,8 +478,8 @@ public class AdKeywords {
 		return util.getSuccessString();
 	}
 
-	public String assertUrl(String objectName, String value, String variable, String valueType, String operation, AdVariable var,
-			WebDriver driver) throws Exception {
+	public String assertUrl(String objectName, String value, String variable, String valueType, String operation,
+			AdVariable var, WebDriver driver) throws Exception {
 		// clean up value type
 		value = variableHandler(operation.toUpperCase(), value, variable, valueType, var);
 		try {
@@ -495,12 +495,16 @@ public class AdKeywords {
 		}
 	}
 
-	public String createVar(String value, String variable, String valueType, String operation, AdVariable var) throws Exception {
-		if(!var.isAVariable(variable)) {
-			return "Keyword" + operation + " invalid: variable not declared.";
+	public String createVar(String value, String variable, String valueType, String operation, AdVariable var)
+			throws Exception {
+		if (!var.isAVariable(variable)) {
+			return "CREATEVARIABLE invalid: variable not declared.";
+		} else if (!var.isAVariable(value)) {
+			value = variableHandler(operation.toUpperCase(), value, variable, valueType, var);
+			return util.getSuccessString();
 		} else {
-		value = variableHandler(operation.toUpperCase(), value, variable, valueType, var);
-		return util.getSuccessString(); }
+			return "CREATEVARIABLE invalid: Value cannot be a variable.";
+		}
 	}
 
 	public String containsText(Properties p, String objectName, String propertyName, String value, String variable,
@@ -526,7 +530,6 @@ public class AdKeywords {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 	public String variableHandler(String keyword, String value, String variable, String valueType, AdVariable var)
 			throws Exception, AdException {

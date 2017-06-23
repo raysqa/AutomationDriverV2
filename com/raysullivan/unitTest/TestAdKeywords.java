@@ -69,12 +69,35 @@ public class TestAdKeywords {
 			assertThat(var.getVariableValue(variable)).isEqualTo(expected);
 		}
 	}
+	
+	@Test(description = "TestCreateVariable", dataProvider = "CreateVariable", enabled = true)
+	public void TestCreateVariable(String value, String variable, String valueType, String operation, String expected)
+			throws AdException, Exception {
+		assertThat(kw.createVar(value, variable, valueType, operation, var)).isEqualTo(expected);
+	}
 
 	@DataProvider
 	public final Object[][] VariableHandler() {
 		return new String[][] { new String[] { "Merry Christmas", null, null, "OPERATION", "Merry Christmas" },
 				new String[] { "Merry Christmas", "${variable}", null, "OPERATION", "Merry Christmas" },
-				new String[] { "${variable2}", "${variable}", null, "OPERATION", "Merry Christmas" }, };
+				new String[] { "${variable2}", "${variable}", null, "OPERATION", "Merry Christmas" }, 
+				new String[] { "10.00", "${variable}", "TEXT", "OPERATION", "10" },
+				new String[] { "10", "${variable}", "DECIMAL", "OPERATION", "10.00" },
+				new String[] { "10.00", "${variable}", null, "PAUSE", "10" },
+				new String[] { "10.00", null, null, "PAUSE", "10" },
+				new String[] { "10.00", "${variable}", null, "CLICKANDHOLD", "10" },
+				new String[] { "10.00", null, null, "CLICKANDHOLD", "10" },
+				new String[] { "0.00", "${variable}", null, "SELECTBYINDEX", "0" },
+				new String[] { "10.00", null, null, "SELECTBYINDEX", "10" },
+				new String[] { "0.00", "${variable}", null, "DESELECTBYINDEX", "0" },
+				new String[] { "10.00", null, null, "DESELECTBYINDEX", "10" },
+				new String[] { "Ogr+OJsuQunKs8mFyR2hgZUsKPkgVALnBTGW9JmLKX0=", null, "ENCRYPT", "OPERATION", "Merry Christmas" }, };
+	}
+	@DataProvider
+	public final Object[][] CreateVariable() {
+		return new String[][] { new String[] { "Merry Christmas", null, null, "OPERATION", "CREATEVARIABLE invalid: variable not declared." },
+				new String[] { "Merry Christmas", "${variable}", null, "OPERATION", "Success" },
+				new String[] { "${variable2}", "${variable}", null, "OPERATION", "CREATEVARIABLE invalid: Value cannot be a variable." }, };
 	}
 
 	@DataProvider
