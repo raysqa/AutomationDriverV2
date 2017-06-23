@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="41" passed="40">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="1421" started-at="2017-06-23T21:25:23Z" finished-at="2017-06-23T21:25:25Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="1421" started-at="2017-06-23T21:25:23Z" finished-at="2017-06-23T21:25:25Z">
+      <class name="raysullivan.unitTest.TestAdKeywords">
+        <test-method status="PASS" signature="TestAssertContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertContains" duration-ms="16" started-at="2017-06-23T15:25:23Z" description="TestAssertContains" data-provider="AssertContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[ a val]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertContains -->
+        <test-method status="PASS" signature="TestAssertContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertContains" data-provider="AssertContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[ A VALUE]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Error]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertContains -->
+        <test-method status="PASS" signature="TestAssertContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertContains" data-provider="AssertContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ ]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[I want a horsey]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Error]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertContains -->
+        <test-method status="PASS" signature="TestAssertContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertContains" data-provider="AssertContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[This is a value that I like]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Error]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertContains -->
+        <test-method status="PASS" signature="TestAssertEquals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertEquals" duration-ms="16" started-at="2017-06-23T15:25:23Z" description="TestAssertEquals" data-provider="AssertEquals" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[this is an equal value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[this is an equal value]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertEquals -->
+        <test-method status="PASS" signature="TestAssertContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertContains" data-provider="AssertContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[I want a horsey]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Error]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertContains -->
+        <test-method status="PASS" signature="TestAssertContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertContains" data-provider="AssertContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[ ]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertContains -->
+        <test-method status="PASS" signature="TestAssertContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertContains" data-provider="AssertContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertContains -->
+        <test-method status="PASS" signature="TestAssertNotContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertNotContains" duration-ms="15" started-at="2017-06-23T15:25:23Z" description="TestAssertNotContains" data-provider="AssertNotContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[ ]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[I want a horsey]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertNotContains -->
+        <test-method status="PASS" signature="TestAssertNotContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertNotContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertNotContains" data-provider="AssertNotContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[ ]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Error]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertNotContains -->
+        <test-method status="PASS" signature="TestAssertEquals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertEquals" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertEquals" data-provider="AssertEquals" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[this is an equal value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[this is not an equal value]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Error]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertEquals -->
+        <test-method status="PASS" signature="TestAssertEquals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertEquals" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertEquals" data-provider="AssertEquals" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertEquals -->
+        <test-method status="PASS" signature="TestAssertNotContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertNotContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertNotContains" data-provider="AssertNotContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[I want a horsey]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertNotContains -->
+        <test-method status="PASS" signature="TestAssertNotContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertNotContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertNotContains" data-provider="AssertNotContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[ a value]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Error]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertNotContains -->
+        <test-method status="PASS" signature="TestAssertEquals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertEquals" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertEquals" data-provider="AssertEquals" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[THIS IS AN EQUAL VALUE]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[this is an equal value]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Error]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertEquals -->
+        <test-method status="PASS" signature="TestAssertNotContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertNotContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertNotContains" data-provider="AssertNotContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[THIS IS A VALUE]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertNotContains -->
+        <test-method status="PASS" signature="TestAssertNotEquals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertNotEquals" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertNotEquals" data-provider="AssertNotEquals" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[THIS IS AN EQUAL VALUE]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[this is an equal value]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertNotEquals -->
+        <test-method status="PASS" signature="TestAssertNotEquals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertNotEquals" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertNotEquals" data-provider="AssertNotEquals" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[this is an equal value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[this is an equal value]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Error]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertNotEquals -->
+        <test-method status="PASS" signature="TestCreateVariable(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestCreateVariable" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestCreateVariable" data-provider="CreateVariable" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Merry Christmas]]>
+              </value>
+            </param>
+            <param index="1">
+              <value is-null="true"/>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[OPERATION]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[CREATEVARIABLE invalid: variable not declared.]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCreateVariable -->
+        <test-method status="PASS" signature="TestCreateVariable(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestCreateVariable" duration-ms="16" started-at="2017-06-23T15:25:23Z" description="TestCreateVariable" data-provider="CreateVariable" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${variable2}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[${variable}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[OPERATION]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[CREATEVARIABLE invalid: Value cannot be a variable.]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCreateVariable -->
+        <test-method status="PASS" signature="TestAssertNotEquals(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertNotEquals" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertNotEquals" data-provider="AssertNotEquals" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[this is an equal value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[this is not an equal value]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertNotEquals -->
+        <test-method status="PASS" signature="TestCreateVariable(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestCreateVariable" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestCreateVariable" data-provider="CreateVariable" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Merry Christmas]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[${variable}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[OPERATION]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestCreateVariable -->
+        <test-method status="PASS" signature="TestAssertNotContains(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestAssertNotContains" duration-ms="0" started-at="2017-06-23T15:25:23Z" description="TestAssertNotContains" data-provider="AssertNotContains" finished-at="2017-06-23T15:25:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${vname1}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[This is a value]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[${vname2}]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[This is a value that I like]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Success]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestAssertNotContains -->
+        <test-method status="PASS" signature="TestPause()[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestPause" duration-ms="1014" started-at="2017-06-23T15:25:23Z" description="TestPause" finished-at="2017-06-23T15:25:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestPause -->
+        <test-method status="PASS" signature="TestPauseException(java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestPauseException" duration-ms="15" started-at="2017-06-23T15:25:24Z" description="TestPauseException" data-provider="PauseException" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+          </params>
+          <exception class="raysullivan.operation.AdException">
+            <message>
+              <![CDATA[Error:  PAUSE duration must be a positive integer value]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[raysullivan.operation.AdException: Error:  PAUSE duration must be a positive integer value
+	at raysullivan.operation.AdKeywords.pause(AdKeywords.java:143)
+	at raysullivan.unitTest.TestAdKeywords.TestPauseException(TestAdKeywords.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- raysullivan.operation.AdException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestPauseException -->
+        <test-method status="PASS" signature="TestPauseException(java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestPauseException" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestPauseException" data-provider="PauseException" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[-1]]>
+              </value>
+            </param>
+          </params>
+          <exception class="raysullivan.operation.AdException">
+            <message>
+              <![CDATA[Error:  PAUSE duration must be a positive integer value]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[raysullivan.operation.AdException: Error:  PAUSE duration must be a positive integer value
+	at raysullivan.operation.AdKeywords.pause(AdKeywords.java:143)
+	at raysullivan.unitTest.TestAdKeywords.TestPauseException(TestAdKeywords.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- raysullivan.operation.AdException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestPauseException -->
+        <test-method status="PASS" signature="TestPauseException(java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestPauseException" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestPauseException" data-provider="PauseException" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[abc]]>
+              </value>
+            </param>
+          </params>
+          <exception class="raysullivan.operation.AdException">
+            <message>
+              <![CDATA[Error:  PAUSE duration must be a positive integer value]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[raysullivan.operation.AdException: Error:  PAUSE duration must be a positive integer value
+	at raysullivan.operation.AdKeywords.pause(AdKeywords.java:148)
+	at raysullivan.unitTest.TestAdKeywords.TestPauseException(TestAdKeywords.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- raysullivan.operation.AdException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestPauseException -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Merry Christmas]]>
+              </value>
+            </param>
+            <param index="1">
+              <value is-null="true"/>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[OPERATION]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Merry Christmas]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Merry Christmas]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[${variable}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[OPERATION]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Merry Christmas]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[${variable2}]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[${variable}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[OPERATION]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Merry Christmas]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10.00]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[${variable}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[PAUSE]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10.00]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[${variable}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[TEXT]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[OPERATION]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="1" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10.00]]>
+              </value>
+            </param>
+            <param index="1">
+              <value is-null="true"/>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[PAUSE]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[${variable}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[DECIMAL]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[OPERATION]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10.00]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0.00]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[${variable}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[SELECTBYINDEX]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0.00]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[${variable}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[DESELECTBYINDEX]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10.00]]>
+              </value>
+            </param>
+            <param index="1">
+              <value is-null="true"/>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[DESELECTBYINDEX]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10.00]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[${variable}]]>
+              </value>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[CLICKANDHOLD]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10.00]]>
+              </value>
+            </param>
+            <param index="1">
+              <value is-null="true"/>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[SELECTBYINDEX]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="FAIL" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="281" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Ogr+OJsuQunKs8mFyR2hgZUsKPkgVALnBTGW9JmLKX0=]]>
+              </value>
+            </param>
+            <param index="1">
+              <value is-null="true"/>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[ENCRYPT]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[OPERATION]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Merry Christmas]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.junit.ComparisonFailure">
+            <message>
+              <![CDATA[expected:<'[Merry Christmas]'> but was:<'[Tundrabagelclimb13]'>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.junit.ComparisonFailure: expected:<'[Merry Christmas]'> but was:<'[Tundrabagelclimb13]'>
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.fest.assertions.ConstructorInvoker.newInstance(ConstructorInvoker.java:36)
+	at org.fest.assertions.ComparisonFailureFactory.newComparisonFailure(ComparisonFailureFactory.java:60)
+	at org.fest.assertions.ComparisonFailureFactory.comparisonFailure(ComparisonFailureFactory.java:46)
+	at org.fest.assertions.Fail.comparisonFailed(Fail.java:83)
+	at org.fest.assertions.Fail.failIfNotEqual(Fail.java:71)
+	at org.fest.assertions.GenericAssert.isEqualTo(GenericAssert.java:217)
+	at raysullivan.unitTest.TestAdKeywords.TestVariableHandler(TestAdKeywords.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.junit.ComparisonFailure -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+        <test-method status="PASS" signature="TestVariableHandler(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:raysullivan.unitTest.TestAdKeywords@402a079c]" name="TestVariableHandler" duration-ms="0" started-at="2017-06-23T15:25:24Z" description="TestVariableHandler" data-provider="VariableHandler" finished-at="2017-06-23T15:25:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10.00]]>
+              </value>
+            </param>
+            <param index="1">
+              <value is-null="true"/>
+            </param>
+            <param index="2">
+              <value is-null="true"/>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[CLICKANDHOLD]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestVariableHandler -->
+      </class> <!-- raysullivan.unitTest.TestAdKeywords -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

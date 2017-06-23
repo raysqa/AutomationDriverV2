@@ -45,8 +45,6 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-test-output/testng.css
-test-output/navigator-bullet.png
 bin/raysullivan/fixture/CalcETFixture.class
 bin/raysullivan/operation/AutomationDriverUtil.class
 *.exe
@@ -56,55 +54,3 @@ test-output/Automation Driver Test Suite/Driver Test.html
 *.png
 test-output/collapseall.gif
 *.html
-test-output/testng-results.xml
-test-output/testng-reports.css
-test-output/testng-failed.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAutomationDriverBrowser.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAutomationDriverBrowserObject.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAutomationDriverBrowserProperties.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAutomationDriverGetPropertyAttribute.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAutomationDriverKeywords.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAutomationDriverPDFListener.xml
-test-output/old/Default suite/Default test.properties
-test-output/old/Automation Driver Test Suite/Driver Test.properties
-test-output/junitreports/TEST-raysullivan.unitTest.TestTakeScreenShot.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestOpenKDTestFile.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestKDTestFile.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestExcelSpreadsheet.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAutomationEncryptDecrypt.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAutomationDriverVariable.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAutomationDriverUtilTest.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAutomationDriverUtil.xml
-test-output/jquery-1.7.1.min.js
-test-output/Default suite/testng-failed.xml
-test-output/Default suite/Default test.xml
-test-output/Automation Driver Test Suite/testng-failed.xml
-test-output/Automation Driver Test Suite/Driver Test.xml
-resource/~$AutomationDriverUsage.xlsx
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdTakeScreenShot.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdOpenExcelSpreadsheet.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdOpenExcelSpreadsheet.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdKeywords.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdGetPropertyAttribute.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdEncryptDecrypt.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdBrowserProperties.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdUtil.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdVariable.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdVariable.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdUtil.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdBrowserProperties.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdEncryptDecrypt.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdBrowserProperties.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdEncryptDecrypt.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdGetPropertyAttribute.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdKeywords.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdOpenExcelSpreadsheet.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdTakeScreenShot.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdUtil.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdBrowserProperties.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdEncryptDecrypt.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdGetPropertyAttribute.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdKeywords.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdTakeScreenShot.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdUtil.xml
-test-output/junitreports/TEST-raysullivan.unitTest.TestAdTakeScreenShot.xml
