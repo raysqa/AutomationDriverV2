@@ -91,7 +91,7 @@ public class TestAdKeywords {
 				new String[] { "10.00", null, null, "SELECTBYINDEX", "10" },
 				new String[] { "0.00", "${variable}", null, "DESELECTBYINDEX", "0" },
 				new String[] { "10.00", null, null, "DESELECTBYINDEX", "10" },
-				new String[] { "Ogr+OJsuQunKs8mFyR2hgZUsKPkgVALnBTGW9JmLKX0=", null, "ENCRYPT", "OPERATION", "Merry Christmas" }, };
+				new String[] { "UbvSbIXxhSqpFp895+teXA==", null, "ENCRYPT", "OPERATION", "Trummino65" }, };
 	}
 	@DataProvider
 	public final Object[][] CreateVariable() {

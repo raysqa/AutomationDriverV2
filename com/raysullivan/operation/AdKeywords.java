@@ -510,6 +510,9 @@ public class AdKeywords {
 	public String containsText(Properties p, String objectName, String propertyName, String value, String variable,
 			String valueType, String operation, AdVariable var) throws Exception {
 		value = variableHandler(operation.toUpperCase(), value, variable, valueType, var);
+		if (variable != null && variable != "") {
+			var.setVariableValue(value, variable);
+		}
 		return null;
 	}
 

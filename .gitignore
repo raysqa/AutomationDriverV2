@@ -55,3 +55,5 @@ test-output/Automation Driver Test Suite/Driver Test.html
 test-output/collapseall.gif
 *.html
 test-output/
+test-output/*
+test-output/testng-results.xml
