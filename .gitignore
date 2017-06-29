@@ -56,4 +56,4 @@ test-output/collapseall.gif
 *.html
 test-output/
 test-output/*
-test-output/testng-results.xml
+test-output/*.*
