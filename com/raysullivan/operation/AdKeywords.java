@@ -21,13 +21,22 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.MoveTargetOutOfBoundsException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdKeywords {
-	private static AdUtil util = new AdUtil();
+	private AdUtil util = new AdUtil();
 	private static AdBrowser browser = new AdBrowser();
+	private AdGetPropertyAttribute pa = new AdGetPropertyAttribute();
 	private static final int millisec = 1000;
-	private static Set<?> setOfOldHandles = null;
+	private Set<?> setOfOldHandles = null;
+	private WebDriver driver;
+	private Wait<WebDriver> wait;
+
+	public AdKeywords(WebDriver driver, Wait<WebDriver> wait) {
+			this.driver = driver;
+			this.wait = wait;
+	}
 
 	public String assertEqual(String variableName1, String variableName2, AdVariable var) throws Exception {
 		if (var.getVariableValue(variableName1).equals(var.getVariableValue(variableName2))) {
@@ -63,7 +72,7 @@ public class AdKeywords {
 
 	public String click(Properties p, String objectName, String propertyName) throws Exception {
 		try {
-			browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)).click();
+			browser.findElement(pa.getObject(p, objectName, propertyName)).click();
 			return util.getSuccessString();
 		} catch (NoSuchElementException nsee) {
 			return "Object " + objectName + " could not be found due to a NoSuchElementException";
@@ -78,7 +87,7 @@ public class AdKeywords {
 
 	public String clickOn(Properties p, String objectName, String propertyName, WebElement checkbox) throws Exception {
 		try {
-			checkbox = browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName));
+			checkbox = browser.findElement(pa.getObject(p, objectName, propertyName));
 			checkbox.click();
 			if (checkbox.isSelected() == true) {
 				return util.getSuccessString();
@@ -100,7 +109,7 @@ public class AdKeywords {
 
 	public String clickOff(Properties p, String objectName, String propertyName, WebElement checkbox) throws Exception {
 		try {
-			checkbox = browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName));
+			checkbox = browser.findElement(pa.getObject(p, objectName, propertyName));
 			checkbox.click();
 			if (checkbox.isSelected() == true) {
 				return util.getSuccessString();
@@ -121,7 +130,7 @@ public class AdKeywords {
 
 	public String clickNoAssert(Properties p, String objectName, String propertyName) throws Exception {
 		try {
-			browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)).click();
+			browser.findElement(pa.getObject(p, objectName, propertyName)).click();
 		} catch (Exception e) {
 		}
 		return util.getSuccessString();
@@ -161,7 +170,7 @@ public class AdKeywords {
 
 	public String submit(Properties p, String objectName, String propertyName) throws Exception {
 		try {
-			browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)).submit();
+			browser.findElement(pa.getObject(p, objectName, propertyName)).submit();
 			return util.getSuccessString();
 		} catch (NoSuchElementException nsee) {
 			return "Object " + objectName + " could not be found due to NoSuchElementException";
@@ -172,7 +181,7 @@ public class AdKeywords {
 
 	public String clear(Properties p, String objectName, String propertyName) throws Exception {
 		try {
-			browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)).clear();
+			browser.findElement(pa.getObject(p, objectName, propertyName)).clear();
 			return util.getSuccessString();
 		} catch (NoSuchElementException nsee) {
 			return "Object " + objectName + " could not be found due to NoSuchElementException";
@@ -198,7 +207,7 @@ public class AdKeywords {
 			throws Exception {
 		try {
 			waitVar.until(ExpectedConditions
-					.visibilityOfElementLocated(AdGetPropertyAttribute.getObject(p, objectName, propertyName)));
+					.visibilityOfElementLocated(pa.getObject(p, objectName, propertyName)));
 			return util.getSuccessString();
 		} catch (TimeoutException te) {
 			return "Object " + objectName + " did not become visible within the default timeout duration";
@@ -215,7 +224,7 @@ public class AdKeywords {
 			throws Exception {
 		try {
 			waitVar.until(ExpectedConditions
-					.invisibilityOfElementLocated(AdGetPropertyAttribute.getObject(p, objectName, propertyName)));
+					.invisibilityOfElementLocated(pa.getObject(p, objectName, propertyName)));
 			return util.getSuccessString();
 		} catch (TimeoutException te) {
 			return "Object " + objectName + " did not become visible within the default timeout duration";
@@ -232,14 +241,14 @@ public class AdKeywords {
 			throws Exception {
 		Actions ch = new Actions(driver);
 		try {
-			ch.clickAndHold(browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName))).build()
+			ch.clickAndHold(browser.findElement(pa.getObject(p, objectName, propertyName))).build()
 					.perform();
 			int sleep = Integer.parseInt(value);
 			if (sleep <= 0) {
 				return "Error:  CLICKANDHOLD duration must be a positive integer value";
 			}
 			Thread.sleep(sleep);
-			ch.release(browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName))).build()
+			ch.release(browser.findElement(pa.getObject(p, objectName, propertyName))).build()
 					.perform();
 			return util.getSuccessString();
 		} catch (NoSuchElementException nsee) {
@@ -265,7 +274,7 @@ public class AdKeywords {
 		// rs https://bugzilla.mozilla.org/show_bug.cgi?id=1292178
 		Actions h = new Actions(driver);
 		try {
-			h.moveToElement(browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName))).build()
+			h.moveToElement(browser.findElement(pa.getObject(p, objectName, propertyName))).build()
 					.perform();
 			return util.getSuccessString();
 		} catch (NoSuchElementException nsee) {
@@ -345,7 +354,7 @@ public class AdKeywords {
 
 	public String scrollTo(Properties p, String objectName, String propertyName, WebDriver driver) throws Exception {
 		try {
-			WebElement scroll = browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName));
+			WebElement scroll = browser.findElement(pa.getObject(p, objectName, propertyName));
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
 			Thread.sleep(500);
 			return util.getSuccessString();
@@ -375,7 +384,7 @@ public class AdKeywords {
 			var.setVariableValue(value, variable);
 		}
 		try {
-			browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)).sendKeys(value);
+			browser.findElement(pa.getObject(p, objectName, propertyName)).sendKeys(value);
 			return util.getSuccessString();
 		} catch (NoSuchElementException nsee) {
 			return "Object " + objectName + " could not be found due to NoSuchElementException";
@@ -394,7 +403,7 @@ public class AdKeywords {
 		}
 		try {
 			Select drpObject = new Select(
-					browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)));
+					browser.findElement(pa.getObject(p, objectName, propertyName)));
 			drpObject.selectByVisibleText(value);
 			return util.getSuccessString();
 		} catch (NoSuchElementException nsee) {
@@ -414,7 +423,7 @@ public class AdKeywords {
 		}
 		try {
 			Select drpObject = new Select(
-					browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)));
+					browser.findElement(pa.getObject(p, objectName, propertyName)));
 			drpObject.deselectByVisibleText(value);
 			return util.getSuccessString();
 		} catch (NoSuchElementException nsee) {
@@ -434,7 +443,7 @@ public class AdKeywords {
 		}
 		try {
 			Select drpObject = new Select(
-					browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)));
+					browser.findElement(pa.getObject(p, objectName, propertyName)));
 			int selectIdx = Integer.parseInt(value);
 			drpObject.selectByIndex(selectIdx);
 			return util.getSuccessString();
@@ -455,7 +464,7 @@ public class AdKeywords {
 		}
 		try {
 			Select drpObject = new Select(
-					browser.findElement(AdGetPropertyAttribute.getObject(p, objectName, propertyName)));
+					browser.findElement(pa.getObject(p, objectName, propertyName)));
 			int selectIdx = Integer.parseInt(value);
 			drpObject.deselectByIndex(selectIdx);
 			return util.getSuccessString();

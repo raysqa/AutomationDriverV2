@@ -9,7 +9,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class AdEncryptDecrypt {
 	private static final String ALGORITHM = "AES";
 
-	private static Key generateKey(byte[] keyValue) throws Exception {
+	private Key generateKey(byte[] keyValue) throws Exception {
 		try {
 			final Key key = new SecretKeySpec(keyValue, ALGORITHM);
 			return key;
@@ -19,7 +19,7 @@ public class AdEncryptDecrypt {
 		}
 	}
 
-	public static String encrypt(final String dataToEncrypt, final String keyString) throws Exception {
+	public String encrypt(final String dataToEncrypt, final String keyString) throws Exception {
 		byte[] keyValue;
 		final Cipher cipher = Cipher.getInstance(ALGORITHM);
 		try {
@@ -45,7 +45,7 @@ public class AdEncryptDecrypt {
 
 	}
 
-	public static String decrypt(String encryptedData, String keyString) throws Exception {
+	public String decrypt(String encryptedData, String keyString) throws Exception {
 		final Cipher cipher = Cipher.getInstance(ALGORITHM);
 		try {
 			byte[] keyValue = keyString.getBytes();

@@ -18,6 +18,7 @@ public class TestAdBrowser {
 	private AdUtil util = new AdUtil();
 	private FirefoxProfile profile = null;
 	private ProfilesIni allProfiles = null;
+	private AdBrowser br = new AdBrowser();
 
 	WebDriver driver;
 	
@@ -39,7 +40,7 @@ public class TestAdBrowser {
 		util.setBrowser(browser);
 		allProfiles = new ProfilesIni();
 		profile = allProfiles.getProfile(webProfile);
-		driver = AdBrowser.getDriver(profile);
+		driver = br.getDriver(profile);
 	}
 	
 	@Test(description = "getDriverWithProfile", dataProvider = "browsersWithProfile", enabled=true)
@@ -47,7 +48,7 @@ public class TestAdBrowser {
 		util.setBrowser(browser);
 		allProfiles = new ProfilesIni();
 		profile = allProfiles.getProfile(webProfile);
-		driver = AdBrowser.getDriver(profile);
+		driver = br.getDriver(profile);
 	}
 
 	@DataProvider

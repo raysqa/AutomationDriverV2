@@ -5,9 +5,9 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 
 public class AdGetPropertyAttribute {
-	private static AdUtil util = new AdUtil();
+	private AdUtil util = new AdUtil();
 
-	public static By getObject(Properties p, String objectName, String propertyName) throws Exception {
+	public By getObject(Properties p, String objectName, String propertyName) throws Exception {
 		String objectType = "none";
 		String newObjectName = null;
 		String propDelimiter = util.getPropertyDelimiter();

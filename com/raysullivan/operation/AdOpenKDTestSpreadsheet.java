@@ -9,9 +9,9 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class AdOpenExcelSpreadsheet {
+public class AdOpenKDTestSpreadsheet {
 
-	public static Sheet readKDSheet(String filePath, String fileName, String sheetName) throws Exception {
+	public Sheet readKDSheet(String filePath, String fileName, String sheetName) throws Exception {
 		final File file = new File(filePath + "\\" + fileName);
 		FileInputStream inputStream;
 		try {

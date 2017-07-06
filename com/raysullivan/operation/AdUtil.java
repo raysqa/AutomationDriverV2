@@ -1,5 +1,9 @@
 package raysullivan.operation;
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+
 public class AdUtil {
 
 	private String decimalPlaces, spreadsheet, worksheet, propertyName;
@@ -18,6 +22,8 @@ public class AdUtil {
 	private static final String DRIVERPATH = System.getProperty("user.dir") + "\\Drivers\\";
 	private static final String SPREADSHEET = ".xlsx";
 	private static final String PROPERTYDELIMITER = "|";
+	private static final String TESTCASEPATH = "Test Cases\\";
+	AdEncryptDecrypt ed = new AdEncryptDecrypt();
 
 	public void setKeyString(final String keyString) {
 		this.keyString = keyString;
@@ -38,6 +44,25 @@ public class AdUtil {
 	public final float calcAvg(float total, float divideBy, int roundup) {
 		return (float) Math.round((total / divideBy) * roundup) / roundup;
 	}
+
+	public void deleteFile(final String filepath, final String filename) {
+		final File file = new File(filepath + "\\" + filename);
+		if (file.exists()) {
+			FileUtils.deleteQuietly(file);
+		}
+	}
+	
+	public String resultCellFormat(final String[] cell, String[] returnString) {
+		/*
+		 * If the return value is a NUMBER, strip out commas from the result
+		 */
+		final String valueType = cell[4];
+		if (valueType.equalsIgnoreCase("DECIMAL")) {
+			return returnString[1].replace(",", "");
+		}
+		return returnString[1];
+	}
+
 
 	public String getSuccessString() {
 		return SUCCESS;
@@ -183,6 +208,10 @@ public class AdUtil {
 		return PROPERTYDELIMITER;
 	}
 
+	public String getTestCasePath() {
+		return getResourcePath() + TESTCASEPATH;
+	}
+
 	public String validateValType(String function, String value, String valueType) throws Exception {
 		setKeyString("automationDriver");
 		boolean error = false;
@@ -194,7 +223,7 @@ public class AdUtil {
 			case "TEXT":
 				return value.replace(decimalPlaces, "");
 			case "ENCRYPT":
-				return AdEncryptDecrypt.decrypt(value, getKeyString());
+				return ed.decrypt(value, getKeyString());
 			default:
 				return value;
 			}

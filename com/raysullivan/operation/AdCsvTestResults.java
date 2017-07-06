@@ -11,6 +11,8 @@ import com.opencsv.*;
  *
  */
 public class AdCsvTestResults {
+	private AdEncryptDecrypt ed = new AdEncryptDecrypt();
+	private AdUtil util = new AdUtil();
 	/**
 	 * writeExcel Creates a datasheet, worksheet and inserts rows
 	 * 
@@ -22,8 +24,7 @@ public class AdCsvTestResults {
 	 */
 	public void writeCsv(String filePath, String fileName, String sheetName,
 			String[] dataToWrite) throws Exception {
-		// Get the utility class
-		AdUtil util = new AdUtil();
+
 		// Create an object of File class to open .csv file
 		String csvFile = filePath + "\\" + fileName + "_" + sheetName + ".csv";
 		File file = new File(csvFile);
@@ -39,7 +40,7 @@ public class AdCsvTestResults {
 		String e = "encrypt";
 		if(dataToWrite[9].equals(e)){
 			util.setKeyString("automationDriver");
-			dataToWrite[8] = AdEncryptDecrypt.encrypt(dataToWrite[8], util.getKeyString());
+			dataToWrite[8] = ed.encrypt(dataToWrite[8], util.getKeyString());
 		}
 		// get total number of rows
 		writer.writeNext(dataToWrite);

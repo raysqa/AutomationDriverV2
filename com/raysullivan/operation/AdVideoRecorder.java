@@ -10,9 +10,9 @@ import static org.monte.media.AudioFormatKeys.*;
 import static org.monte.media.VideoFormatKeys.*;
 
 public class AdVideoRecorder {
-	private static ScreenRecorder screenRecorder;
+	private ScreenRecorder screenRecorder;
 
-	public static void startRecording(String fileName, String filePath)
+	public void startRecording(String fileName, String filePath)
 			throws Exception {
 		File file = new File(filePath);
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -41,7 +41,7 @@ public class AdVideoRecorder {
 
 	}
 
-	public static void stopRecording() throws Exception {
+	public void stopRecording() throws Exception {
 		screenRecorder.stop();
 	}
 }

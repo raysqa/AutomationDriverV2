@@ -8,40 +8,41 @@ import raysullivan.operation.AdEncryptDecrypt;
 import raysullivan.operation.AdException;
 
 public class TestAdEncryptDecrypt {
+	AdEncryptDecrypt ed = new AdEncryptDecrypt();
 
 	@Test(dataProvider = "encryptValues", description = "encryptString", enabled = true)
 	public void encryptString(String toEncrypt, String keyString, String encrypted) throws Exception {
-		String newString = AdEncryptDecrypt.encrypt(toEncrypt, keyString);
+		String newString = ed.encrypt(toEncrypt, keyString);
 		// System.out.println("Encrypt " + toEncrypt + ":\t" + newString);
 		assertThat(newString).isEqualTo(encrypted);
 	}
 
 	@Test(dataProvider = "encryptValuesExceptions", description = "encryptStringExceptions", expectedExceptions = AdException.class, enabled = true)
 	public void encryptStringExceptions(String toEncrypt, String keyString) throws Exception {
-		AdEncryptDecrypt.decrypt(toEncrypt, keyString);
+		ed.decrypt(toEncrypt, keyString);
 	}
 
 	@Test(dataProvider = "encryptValuesBad", description = "encryptString", enabled = true)
 	public void encryptStringBad(String toEncrypt, String keyString, String encrypted) throws Exception {
-		String newString = AdEncryptDecrypt.encrypt(toEncrypt, keyString);
+		String newString = ed.encrypt(toEncrypt, keyString);
 		// System.out.println("Encrypt " + toEncrypt + ":\t" + newString);
 		assertThat(newString).isNotEqualTo(encrypted);
 	}
 
 	@Test(dataProvider = "decryptValues", description = "decryptString", enabled = true)
 	public final void decryptString(String encryptedData, String keyString, String resultString) throws Exception {
-		assertThat(AdEncryptDecrypt.decrypt(encryptedData, keyString)).isEqualTo(resultString);
+		assertThat(ed.decrypt(encryptedData, keyString)).isEqualTo(resultString);
 	}
 
 	@Test(dataProvider = "decryptValuesExceptions", description = "decryptStringExceptions", expectedExceptions = AdException.class, enabled = true)
 	public final void decryptStringExceptions(String encryptedData, String keyString, String resultString)
 			throws Exception {
-		AdEncryptDecrypt.decrypt(encryptedData, keyString);
+		ed.decrypt(encryptedData, keyString);
 	}
 
 	@Test(dataProvider = "decryptValuesInvalid", description = "decryptStringInvalid", enabled = true)
 	public final void decryptStringBad(String encryptedData, String keyString, String resultString) throws Exception {
-		assertThat(AdEncryptDecrypt.decrypt(encryptedData, keyString)).isNotEqualTo(resultString);
+		assertThat(ed.decrypt(encryptedData, keyString)).isNotEqualTo(resultString);
 	}
 
 	@DataProvider

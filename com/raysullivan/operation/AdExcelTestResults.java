@@ -24,7 +24,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class AdExcelTestResults {
 	// Get the utility class
-	AdUtil util = new AdUtil();
+	private AdUtil util = new AdUtil();
+	private AdEncryptDecrypt ed = new AdEncryptDecrypt();
 //	AutomationDriverTool tool = new AutomationDriverTool();
 	/**
 	 * writeExcel Creates a datasheet, worksheet and inserts rows
@@ -85,7 +86,7 @@ public class AdExcelTestResults {
 		String e = "encrypt";
 		if(dataToWrite[8].equals(e)){
 			util.setKeyString("automationDriver");
-			dataToWrite[7] = AdEncryptDecrypt.encrypt(dataToWrite[7], util.getKeyString());
+			dataToWrite[7] = ed.encrypt(dataToWrite[7], util.getKeyString());
 		}
 		// Now get the default worksheet name using the getSheet method
 		Sheet sheet = workbook.getSheet(sheetName);

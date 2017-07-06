@@ -19,9 +19,10 @@ import raysullivan.operation.AdBrowser;
 import raysullivan.operation.AdUtil;
 
 public class TestAdTakeScreenShot {
-	AdUtil util = new AdUtil();
+	private AdUtil util = new AdUtil();
 	private FirefoxProfile profile = null;
 	private ProfilesIni allProfiles = null;
+	private AdBrowser br = new AdBrowser();
 
 	WebDriver driver;
 
@@ -45,7 +46,7 @@ public class TestAdTakeScreenShot {
 		util.setBrowser("Firefox");
 		allProfiles = new ProfilesIni();
 		profile = allProfiles.getProfile("TestProfile");
-		driver = AdBrowser.getDriver(profile);
+		driver = br.getDriver(profile);
 	}
 
 	@Test(description = "testScreenShot", enabled = true)
@@ -54,7 +55,7 @@ public class TestAdTakeScreenShot {
 		String baseScreenshot = util.getTestReportPath();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH.mm.ss");
 		String ssfile = baseScreenshot + "FailureScreenshot_" + dateFormat.format(new Date()) + ".png";
-		AdBrowser.takeScreenShot(AdBrowser.getDriver(null), ssfile);
+		br.takeScreenShot(br.getDriver(null), ssfile);
 		File f = new File(ssfile);
 		if (!f.exists() || f.isDirectory()) {
 			fail = true;

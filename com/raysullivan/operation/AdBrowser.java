@@ -21,13 +21,12 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdBrowser {
-	private static AdUtil util = new AdUtil();
-	private static AdKeywords kw = new AdKeywords();
-	private static WebDriver driver;
+	private AdUtil util = new AdUtil();
+	private WebDriver driver;
 	private WebDriverWait waitVar;
 	private static final int millisec = 1000;
 	private long starttime, endtime;
-
+	private AdKeywords kw = new AdKeywords(driver, waitVar);
 	//public AdBrowser(WebDriver driver, WebDriverWait waitVar) {
 	//	this.driver = driver;
 	//	this.waitVar = waitVar;
@@ -189,7 +188,7 @@ public class AdBrowser {
 		return returnMessage;
 	}
 
-	public static void takeScreenShot(final WebDriver webdriver, final String fileWithPath) throws Exception {
+	public void takeScreenShot(final WebDriver webdriver, final String fileWithPath) throws Exception {
 		// Convert web driver object to TakeScreenshot
 		final TakesScreenshot scrShot = ((TakesScreenshot) webdriver);
 		// Call getScreenshotAs method to create image file
@@ -202,7 +201,7 @@ public class AdBrowser {
 		FileUtils.deleteQuietly(srcFile);
 	}
 
-	public static WebDriver getDriver(final FirefoxProfile profile) throws AdException {
+	public WebDriver getDriver(final FirefoxProfile profile) throws AdException {
 		if (util.getBrowser() == null || util.getBrowser() == "") {
 			throw new AdException("Browser cannot be blank or null");
 		}

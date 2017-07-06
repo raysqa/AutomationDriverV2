@@ -41,6 +41,7 @@ public class AdPDFListener implements ITestListener {
 	 */
 	
 	private AdUtil util  = new AdUtil();
+	private AdBrowser br = new AdBrowser();
 	/**
 	 * Document
 	 */
@@ -167,7 +168,7 @@ public class AdPDFListener implements ITestListener {
 		String ssfile = baseScreenshot + "FailureScreenshot_"
 				+ dateFormat.format(new Date()) + ".png";
 		try {
-			AdBrowser.takeScreenShot(AdBrowser.getDriver(null),
+			br.takeScreenShot(br.getDriver(null),
 					ssfile);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

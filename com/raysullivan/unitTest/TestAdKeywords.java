@@ -12,9 +12,9 @@ import static org.fest.assertions.Assertions.assertThat;
 import org.testng.annotations.DataProvider;
 
 public class TestAdKeywords {
-	AdVariable var = new AdVariable();
-	AdKeywords kw = new AdKeywords();
-	AdUtil util = new AdUtil();
+	private AdVariable var = new AdVariable();
+	private AdKeywords kw = new AdKeywords(null, null);
+	private AdUtil util = new AdUtil();
 
 	@Test(description = "TestAssertEquals", dataProvider = "AssertEquals", enabled = true)
 	public void TestAssertEquals(String variableName1, String variableValue1, String variableName2,

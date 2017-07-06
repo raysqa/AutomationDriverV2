@@ -16,19 +16,20 @@ import org.testng.annotations.DataProvider;
 
 public class TestAdGetPropertyAttribute {
 	private AdReadProperties object = new AdReadProperties();
+	private AdGetPropertyAttribute pa = new AdGetPropertyAttribute();
 	Properties p = mock(Properties.class);
 
 	@Test(dataProvider = "validPropertyName", description = "getPropertyValid", enabled = true)
 	public void getPropertyValid(String propertyFileName, String objectName, String resultString) throws Exception {
 		p = object.getObjectRepository(propertyFileName);
-		By b = AdGetPropertyAttribute.getObject(p, objectName, propertyFileName);
+		By b = pa.getObject(p, objectName, propertyFileName);
 		assertThat(b.toString()).isEqualTo(resultString);
 	}
 
 	@Test(dataProvider = "invalidPropertyName", description = "getPropertyInvalid", expectedExceptions = AdException.class, enabled = true)
 	public void getPropertyInvalid(String propertyFileName, String objectName) throws Exception {
 		p = object.getObjectRepository(propertyFileName);
-		AdGetPropertyAttribute.getObject(p, objectName, propertyFileName);
+		pa.getObject(p, objectName, propertyFileName);
 	}
 
 	@DataProvider
