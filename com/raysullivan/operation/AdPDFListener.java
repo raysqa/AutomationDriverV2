@@ -41,7 +41,7 @@ public class AdPDFListener implements ITestListener {
 	 */
 	
 	private AdUtil util  = new AdUtil();
-	private AdBrowser br = new AdBrowser();
+	private AdBrowser br = new AdBrowser(null, null);
 	/**
 	 * Document
 	 */

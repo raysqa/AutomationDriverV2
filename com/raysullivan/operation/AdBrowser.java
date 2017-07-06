@@ -18,6 +18,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdBrowser {
@@ -26,12 +27,13 @@ public class AdBrowser {
 	private WebDriverWait waitVar;
 	private static final int millisec = 1000;
 	private long starttime, endtime;
-	private AdKeywords kw = new AdKeywords(driver, waitVar);
-	//public AdBrowser(WebDriver driver, WebDriverWait waitVar) {
-	//	this.driver = driver;
-	//	this.waitVar = waitVar;
-	//}
+	private Wait<WebDriver> wait;
+	private static AdKeywords kw = new AdKeywords();
 
+	public AdBrowser (WebDriver driver, Wait<WebDriver> wait) {
+		this.driver = driver;
+		this.wait = wait;
+}
 	public String[] perform(Properties p, String propertyName, String cell[], AdVariable var,
 			AdUtil tool) throws Exception {
 		String operation = cell[1];
@@ -208,11 +210,11 @@ public class AdBrowser {
 		if (driver == null) {
 			switch (util.getBrowser().toLowerCase()) {
 			case "ie":
-				System.setProperty("webdriver.ie.driver", util.getDriverPath() + "IEDriverServer.exe");
+				System.setProperty("webdriver.ie.driver", util.getDriverPath() + "IEDriverServer_3_4_0.exe");
 				driver = new InternetExplorerDriver();
 				break;
 			case "chrome":
-				System.setProperty("webdriver.chrome.driver", util.getDriverPath() + "chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", util.getDriverPath() + "chromedriver_2_30.exe");
 				driver = new ChromeDriver();
 				break;
 			case "opera":

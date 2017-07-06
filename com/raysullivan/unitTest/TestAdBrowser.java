@@ -18,10 +18,9 @@ public class TestAdBrowser {
 	private AdUtil util = new AdUtil();
 	private FirefoxProfile profile = null;
 	private ProfilesIni allProfiles = null;
-	private AdBrowser br = new AdBrowser();
+	private WebDriver driver;
+	private AdBrowser br = new AdBrowser(driver, null);
 
-	WebDriver driver;
-	
 	@AfterTest
 	public void afterTest() throws Exception {
 	try {

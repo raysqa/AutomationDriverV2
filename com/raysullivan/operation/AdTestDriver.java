@@ -23,7 +23,7 @@ import raysullivan.dataProvider.Default;
 @Test(dataProvider = "DefaultDataProvider", dataProviderClass = Default.class)
 public class AdTestDriver {
 
-	private WebDriver webdriver = null;
+	private WebDriver driver = null;
 	private AdUtil util = new AdUtil();
 	private ProfilesIni allProfiles = null;
 	private FirefoxProfile profile = null;
@@ -32,12 +32,10 @@ public class AdTestDriver {
 	private AdOpenKDTestSpreadsheet rfile = null;
 	private AdReadProperties object = null;
 	private Properties allObjects = null;
-	private AdKeywords operation = null;
 	private AdVariable var = null;
-	private AdBrowser br = null;
-	private String csvFile;
+	private AdBrowser br = new AdBrowser(null, null);
+	private String csvFile, excelFile;
 	private Sheet sheet;
-	private String excelFile;
 	private AdVideoRecorder vr = null;
 	//private final String TESTCASEPATH = "Test Cases\\";
 	private int rowCount;
@@ -53,10 +51,10 @@ public class AdTestDriver {
 
 	@AfterSuite
 	public void afterSuite() throws Exception {
-		webdriver.close();
+		driver.close();
 		try {
 			Thread.sleep(1000);
-			webdriver.quit();
+			driver.quit();
 		} catch (Exception e) {
 		}
 	}
@@ -67,7 +65,7 @@ public class AdTestDriver {
 		util.setTestProfile(spreadsheet, worksheet, resultSpreadsheet, browser, webProfile, timeout, propertyName,
 				sheetIterations, capCsv, capVideo);
 		if (webProfile == "none") {
-			webdriver = br.getDriver(null);
+			driver = br.getDriver(null);
 		} else {
 			allProfiles = new ProfilesIni();
 			profile = allProfiles.getProfile(webProfile);
@@ -76,7 +74,7 @@ public class AdTestDriver {
 			} catch (NullPointerException npe) {
 				throw new AdException("Error: FireFox Profile " + webProfile + " is invalid or does not exist.");
 			}
-			webdriver = br.getDriver(profile);
+			driver = br.getDriver(profile);
 		}
 		setFluentWait(timeout);
 		setInputOutputFiles(resultSpreadsheet);
@@ -85,8 +83,7 @@ public class AdTestDriver {
 				csvFile, sheetIterations, capCsv);
 		startVidCap(capVideo);
 		var = new AdVariable();
-		br = new AdBrowser();
-		for (int si = 1; si <= sheetIterations; si++) {
+				for (int si = 1; si <= sheetIterations; si++) {
 			/*
 			 * Send test information to console
 			 */
@@ -128,7 +125,7 @@ public class AdTestDriver {
 				throw new AdException(
 						"Error:  Unable to process row " + r
 								+ " from spreadsheet: " + spreadsheet
-								+ ", worksheet :" + worksheet);
+								+ ", worksheet: " + worksheet);
 			}
 			/*
 			 * Check if the first cell contain a value, if yes, That means
@@ -243,10 +240,10 @@ public class AdTestDriver {
 					"Error:  Default WebDriverWait cannot be less than 5 seconds.");
 		}
 		util.setTimeout(timeout);
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(webdriver)
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 			    .withTimeout(timeout, TimeUnit.SECONDS)
 			    .pollingEvery(5, TimeUnit.SECONDS);
-		operation = new AdKeywords(webdriver, wait);
+		br = new AdBrowser(driver, wait);
 	}
 
 	private void setObjectRepository(final String propertyName) throws IOException, AdException {
@@ -261,7 +258,6 @@ public class AdTestDriver {
 		rfile = new AdOpenKDTestSpreadsheet();
 		wfile = new AdExcelTestResults();
 		cfile = new AdCsvTestResults();
-		String excelFile = null, csvFile = null;
 	}
 	private Sheet initFiles(String spreadsheet, String excelFile,
 			String worksheet, String resultSpreadsheet, String csvFile,

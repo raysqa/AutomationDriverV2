@@ -26,17 +26,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdKeywords {
 	private AdUtil util = new AdUtil();
-	private static AdBrowser browser = new AdBrowser();
 	private AdGetPropertyAttribute pa = new AdGetPropertyAttribute();
 	private static final int millisec = 1000;
 	private Set<?> setOfOldHandles = null;
 	private WebDriver driver;
 	private Wait<WebDriver> wait;
-
-	public AdKeywords(WebDriver driver, Wait<WebDriver> wait) {
-			this.driver = driver;
-			this.wait = wait;
-	}
+	private AdBrowser browser = new AdBrowser(driver, wait);
 
 	public String assertEqual(String variableName1, String variableName2, AdVariable var) throws Exception {
 		if (var.getVariableValue(variableName1).equals(var.getVariableValue(variableName2))) {

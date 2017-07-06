@@ -13,7 +13,7 @@ import org.testng.annotations.DataProvider;
 
 public class TestAdKeywords {
 	private AdVariable var = new AdVariable();
-	private AdKeywords kw = new AdKeywords(null, null);
+	private AdKeywords kw = new AdKeywords();
 	private AdUtil util = new AdUtil();
 
 	@Test(description = "TestAssertEquals", dataProvider = "AssertEquals", enabled = true)

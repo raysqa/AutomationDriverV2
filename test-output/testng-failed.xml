@@ -1,93 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="20" name="Failed suite [Automation Driver Test Suite]">
-  <parameter name="testName" value="UnitTestReport"/>
+<suite thread-count="20" name="Failed suite [Red Robin Royalty]">
+  <parameter name="testName" value="RedRobinLoyalty"/>
   <listeners>
     <listener class-name="raysullivan.operation.AdPDFListener"/>
   </listeners>
-  <test name="Driver Test(failed)">
+  <test name="Red Robin Royalty Test(failed)">
     <classes>
-      <class name="raysullivan.unitTest.TestAdKeywords">
+      <class name="raysullivan.driver.RedRobinRoyaltyDriver">
         <methods>
-          <include name="TestCreateVariable"/>
-          <include name="TestAssertNotEquals"/>
-          <include name="TestVariableHandler"/>
-          <include name="TestAssertNotContains"/>
-          <include name="TestPauseException"/>
-          <include name="TestAssertEquals"/>
-          <include name="TestAssertContains"/>
-          <include name="TestPause"/>
+          <include name="afterTest"/>
+          <include name="afterSuite"/>
+          <include name="testDriver" invocation-numbers="0 1 2 3 4 5 6 7 8 9 10"/>
+          <include name="beforeSuite"/>
         </methods>
-      </class> <!-- raysullivan.unitTest.TestAdKeywords -->
-      <class name="raysullivan.unitTest.TestAdEncryptDecrypt">
-        <methods>
-          <include name="decryptString"/>
-          <include name="decryptStringBad"/>
-          <include name="decryptStringExceptions"/>
-          <include name="encryptStringBad"/>
-          <include name="encryptString"/>
-          <include name="encryptStringExceptions"/>
-        </methods>
-      </class> <!-- raysullivan.unitTest.TestAdEncryptDecrypt -->
-      <class name="raysullivan.unitTest.TestAdGetPropertyAttribute">
-        <methods>
-          <include name="getPropertyValid"/>
-          <include name="getPropertyInvalid"/>
-        </methods>
-      </class> <!-- raysullivan.unitTest.TestAdGetPropertyAttribute -->
-      <class name="raysullivan.unitTest.TestAdBrowserProperties">
-        <methods>
-          <include name="testFileNotFound"/>
-          <include name="testPropertyFile"/>
-        </methods>
-      </class> <!-- raysullivan.unitTest.TestAdBrowserProperties -->
-      <class name="raysullivan.unitTest.TestAdVariable">
-        <methods>
-          <include name="isAVariableTest"/>
-          <include name="setVariableMultiple"/>
-          <include name="validateAssertVariables"/>
-          <include name="validateVariableInvalid"/>
-          <include name="validateVariable"/>
-          <include name="setVariableAndOverwrite"/>
-        </methods>
-      </class> <!-- raysullivan.unitTest.TestAdVariable -->
-      <class name="raysullivan.unitTest.TestAdTakeScreenShot">
-        <methods>
-          <include name="beforeTest"/>
-          <include name="testScreenShot"/>
-        </methods>
-      </class> <!-- raysullivan.unitTest.TestAdTakeScreenShot -->
-      <class name="raysullivan.unitTest.TestAdOpenExcelSpreadsheet">
-        <methods>
-          <include name="invalidKBTestFile"/>
-          <include name="validKBTestFile"/>
-          <include name="beforeTest"/>
-        </methods>
-      </class> <!-- raysullivan.unitTest.TestAdOpenExcelSpreadsheet -->
-      <class name="raysullivan.unitTest.TestAdUtil">
-        <methods>
-          <include name="getTestTimeout"/>
-          <include name="getWorksheet"/>
-          <include name="validateValTypeTest"/>
-          <include name="getTestPropertyPath"/>
-          <include name="getTestReportPath"/>
-          <include name="getTestcase"/>
-          <include name="getSuccess"/>
-          <include name="getResultSpreadsheet"/>
-          <include name="getAverage"/>
-          <include name="getWebProfile"/>
-          <include name="getIsCapCsv"/>
-          <include name="getError"/>
-          <include name="getKeyString"/>
-          <include name="getSheetIterations"/>
-          <include name="getTestProfile"/>
-          <include name="getElapsedTime"/>
-          <include name="getSpreadsheet"/>
-          <include name="getBrowser"/>
-          <include name="getIsCapVideo"/>
-          <include name="getPropertyName"/>
-        </methods>
-      </class> <!-- raysullivan.unitTest.TestAdUtil -->
+      </class> <!-- raysullivan.driver.RedRobinRoyaltyDriver -->
     </classes>
-  </test> <!-- Driver Test(failed) -->
-</suite> <!-- Failed suite [Automation Driver Test Suite] -->
+  </test> <!-- Red Robin Royalty Test(failed) -->
+</suite> <!-- Failed suite [Red Robin Royalty] -->

@@ -22,9 +22,8 @@ public class TestAdTakeScreenShot {
 	private AdUtil util = new AdUtil();
 	private FirefoxProfile profile = null;
 	private ProfilesIni allProfiles = null;
-	private AdBrowser br = new AdBrowser();
-
-	WebDriver driver;
+	private WebDriver driver;
+	private AdBrowser br = new AdBrowser(driver, null);
 
 	@AfterTest
 	public void afterTest() throws Exception {
